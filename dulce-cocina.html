@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="page">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; background:#f3f1ec; }
+  a { color:#1f4fd8; text-decoration:none; }
+  a:hover { color:#12130f; }
+</style>
+</helmet>
+<div style="background:#f3f1ec;color:#12130f;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh">
+  <div style="max-width:1180px;margin:0 auto;padding:0 44px">
+
+    <header style="display:flex;justify-content:space-between;align-items:center;padding:26px 0;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#5c5c54">
+      <a href="index.html" style="color:#12130f">← Raihan Bangara</a>
+      <div style="display:flex;gap:26px">
+        <a href="jiostar.html" style="color:#5c5c54">JioStar</a>
+        <a href="verix.html" style="color:#5c5c54">Verix</a>
+      </div>
+    </header>
+
+    <section style="border-top:1px solid #dedbd3;padding:88px 0 60px;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:72px;align-items:end">
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#1f4fd8;margin-bottom:30px">Case study 01 · Full stack · 2026</div>
+        <h1 style="font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(44px,6.6vw,88px);line-height:1.02;letter-spacing:-0.02em;margin:0 0 28px">Dulce Cocina</h1>
+        <p style="font-size:21px;color:#4a4a42;margin:0;max-width:52ch;text-wrap:pretty">A production e-commerce storefront for a home bakery: product catalog, cart, UPI payments, persistent order records, and transactional email. Built solo, from zero coding knowledge to a live deployment.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#5c5c54">
+        <div style="display:flex;justify-content:space-between;border-bottom:1px solid #dedbd3;padding-bottom:11px"><span>Role</span><span style="color:#12130f">Sole builder</span></div>
+        <div style="display:flex;justify-content:space-between;border-bottom:1px solid #dedbd3;padding-bottom:11px"><span>Year</span><span style="color:#12130f">2026</span></div>
+        <div style="display:flex;justify-content:space-between;border-bottom:1px solid #dedbd3;padding-bottom:11px"><span>Status</span><span style="color:#1f4fd8">Live in production</span></div>
+        <a href="https://dulce-cocina.vercel.app" style="text-align:center;margin-top:10px;padding:15px;background:#1f4fd8;color:#f3f1ec;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="background:#12130f;color:#f3f1ec">Visit the live site</a>
+      </div>
+    </section>
+
+    <div style="background:#f7ece3;display:grid;grid-template-columns:minmax(0,1fr) 380px;align-items:center;gap:56px;padding:64px;margin-bottom:88px;border:1px solid #e3d6c9">
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#a6836b;margin-bottom:22px">Brand identity</div>
+        <p style="font-family:'Instrument Serif',Georgia,serif;font-size:31px;line-height:1.28;margin:0 0 18px;color:#4a2c1c;text-wrap:pretty">Homemade with love — a warm, hand-lettered mark for a bakery that had never had one.</p>
+        <p style="font-size:16.5px;color:#7b5a45;margin:0;max-width:46ch;text-wrap:pretty">The identity set the palette for the entire storefront: cream ground, cocoa type, and a soft rose accent carried through buttons, badges, and order confirmation emails.</p>
+      </div>
+      <img src="assets/dulce-cocina-logo.png" alt="Dulce Cocina — homemade with love" style="width:100%;height:auto;display:block" />
+    </div>
+
+    <section style="display:grid;grid-template-columns:220px minmax(0,1fr);gap:56px;padding-bottom:76px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#1f4fd8">The brief</div>
+      <div style="max-width:66ch">
+        <p style="font-family:'Instrument Serif',Georgia,serif;font-size:29px;line-height:1.3;margin:0 0 20px;text-wrap:pretty">A home bakery was taking orders through direct messages, losing track of them, and had no way to accept payment online.</p>
+        <p style="font-size:17px;color:#4a4a42;margin:0;text-wrap:pretty">I had no engineering background when I started. Rather than buy a template, I researched the stack myself so I would understand every part of it: an HTML, CSS, and JavaScript frontend on Vercel, a Node.js and Express API on Railway, PostgreSQL for order storage, Resend for transactional email, and UPI for payments.</p>
+      </div>
+    </section>
+
+    <section style="display:grid;grid-template-columns:220px minmax(0,1fr);gap:56px;padding-bottom:76px;border-top:1px solid #dedbd3;padding-top:60px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#1f4fd8">Problems I solved</div>
+      <div style="display:flex;flex-direction:column;gap:2px">
+
+        <div style="background:#ffffff;border:1px solid #dedbd3;padding:28px 30px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#8b897e;margin-bottom:12px">Problem 01 · Data loss</div>
+          <div style="font-family:'Instrument Serif',Georgia,serif;font-size:26px;line-height:1.2;margin-bottom:12px">Orders disappeared on every redeploy</div>
+          <p style="font-size:16px;color:#4a4a42;margin:0;max-width:64ch;text-wrap:pretty">Order records lived in memory, so every Railway redeployment wiped them. I diagnosed the cause, then migrated storage to PostgreSQL so orders persist across deploys and restarts.</p>
+        </div>
+
+        <div style="background:#ffffff;border:1px solid #dedbd3;padding:28px 30px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#8b897e;margin-bottom:12px">Problem 02 · Email delivery</div>
+          <div style="font-family:'Instrument Serif',Georgia,serif;font-size:26px;line-height:1.2;margin-bottom:12px">Confirmation emails silently failed</div>
+          <p style="font-size:16px;color:#4a4a42;margin:0;max-width:64ch;text-wrap:pretty">Railway blocks outbound Gmail SMTP, which killed order confirmations with no obvious error. I re-architected the email flow around Resend's API and kept the whole thing inside free-tier sending limits.</p>
+        </div>
+
+        <div style="background:#ffffff;border:1px solid #dedbd3;padding:28px 30px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#8b897e;margin-bottom:12px">Problem 03 · Payments</div>
+          <div style="font-family:'Instrument Serif',Georgia,serif;font-size:26px;line-height:1.2;margin-bottom:12px">Checkout had to work end to end</div>
+          <p style="font-size:16px;color:#4a4a42;margin:0;max-width:64ch;text-wrap:pretty">I built UPI checkout from the frontend form through to backend order confirmation, so a customer can place and pay for an order without a single message being sent by hand.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="border-top:1px solid #dedbd3;padding:60px 0 88px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#1f4fd8;margin-bottom:30px">Outcome</div>
+      <p style="font-family:'Instrument Serif',Georgia,serif;font-size:clamp(30px,3.6vw,46px);line-height:1.2;margin:0 0 40px;max-width:22ch">A fully deployed, functional production app, built alone.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <span style="border:1px solid #cfccc3;font-size:13px;padding:6px 14px">HTML / CSS / JS</span>
+        <span style="border:1px solid #cfccc3;font-size:13px;padding:6px 14px">Node.js</span>
+        <span style="border:1px solid #cfccc3;font-size:13px;padding:6px 14px">Express</span>
+        <span style="border:1px solid #cfccc3;font-size:13px;padding:6px 14px">PostgreSQL</span>
+        <span style="border:1px solid #cfccc3;font-size:13px;padding:6px 14px">Vercel</span>
+        <span style="border:1px solid #cfccc3;font-size:13px;padding:6px 14px">Railway</span>
+        <span style="border:1px solid #cfccc3;font-size:13px;padding:6px 14px">Resend</span>
+        <span style="border:1px solid #cfccc3;font-size:13px;padding:6px 14px">UPI</span>
+      </div>
+    </section>
+
+    <footer style="background:#12130f;color:#f3f1ec;margin:0 -44px;padding:72px 44px 52px">
+      <div style="max-width:1092px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap">
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#7c7c72;margin-bottom:14px">Next case study</div>
+          <a href="jiostar.html" style="font-family:'Instrument Serif',Georgia,serif;font-size:clamp(34px,4.4vw,58px);line-height:1;color:#f3f1ec" style-hover="color:#7fa8f0">JioStar →</a>
+        </div>
+        <div style="display:flex;gap:14px">
+          <a href="mailto:raihanbangara@gmail.com" style="padding:16px 28px;background:#1f4fd8;color:#f3f1ec;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="background:#f3f1ec;color:#12130f">Email</a>
+          <a href="https://linkedin.com/in/raihan-bangara" style="padding:16px 28px;border:1px solid #3a3b34;color:#f3f1ec;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="border-color:#f3f1ec;color:#f3f1ec">LinkedIn</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900}}"></script>
+</body>
+</html>
