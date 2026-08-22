@@ -13,105 +13,114 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  body { margin:0; background:#f3f1ec; }
-  a { color:#1f4fd8; text-decoration:none; }
-  a:hover { color:#12130f; }
+  :root{
+    --bg:#eaeee8; --ink:#12130f; --panel:#12130f; --on-panel:#eaeee8; --card:#ffffff;
+    --border:#d3dacf; --border-dark:#3b423c; --accent:#2f5d45; --accent-soft:#b4cdbf;
+    --m1:#444b45; --m2:#565f57; --m3:#787f79; --m4:#9fa89f;
+    --cream-bg:#f7ece3; --cream-border:#e3d6c9; --cream-ink:#4a2c1c; --cream-mid:#7b5a45; --cream-label:#a6836b;
+  }
+  :root[data-theme="dark"]{
+    --bg:#12170f; --ink:#e8ece4; --panel:#1a2016; --on-panel:#e8ece4; --card:#1a2016;
+    --border:#2b332a; --border-dark:#2b332a; --accent:#8fbf9e; --accent-soft:#25402c;
+    --m1:#a9b3a5; --m2:#98a294; --m3:#87917f; --m4:#6f7a6b;
+    --cream-bg:#1d1712; --cream-border:#33291f; --cream-ink:#f0e2d4; --cream-mid:#c9ae98; --cream-label:#c9a184;
+  }
+  body { margin:0; background:var(--bg); }
+  a { color:var(--accent); text-decoration:none; }
+  a:hover { color:var(--ink); }
 </style>
+<script src="./theme.js"></script>
 </helmet>
-<div style="background:#f3f1ec;color:#12130f;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;line-height:1.55;min-height:100vh">
+<div style="background:var(--bg);color:var(--ink);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;line-height:1.55;min-height:100vh">
   <div style="max-width:1180px;margin:0 auto;padding:0 44px">
 
-    <header style="display:flex;justify-content:space-between;align-items:center;padding:26px 0;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#5c5c54">
-      <span style="color:#12130f">Raihan Bangara</span>
+    <header style="display:flex;justify-content:space-between;align-items:center;padding:26px 0;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--m2)">
+      <span style="color:var(--ink)">Raihan Bangara</span>
       <div style="display:flex;gap:26px">
-        <a href="#work" style="color:#5c5c54">Work</a>
-        <a href="#about" style="color:#5c5c54">About</a>
-        <a href="#contact" style="color:#5c5c54">Contact</a>
+        <a href="#work" style="color:var(--m2)">Work</a>
+        <a href="#about" style="color:var(--m2)">About</a>
+        <a href="#contact" style="color:var(--m2)">Contact</a>
       </div>
     </header>
 
-    <section style="padding:104px 0 76px;border-top:1px solid #dedbd3">
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#1f4fd8;margin-bottom:34px">Growth marketing · Business development · Sports &amp; media</div>
-      <h1 style="font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(48px,7.4vw,104px);line-height:1;letter-spacing:-0.02em;margin:0 0 44px;max-width:15ch">I turn performance data into <em style="color:#1f4fd8">audience growth</em>.</h1>
+    <section style="padding:104px 0 76px;border-top:1px solid var(--border)">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:34px">Growth marketing · Business development · Sports &amp; media</div>
+      <h1 style="font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(48px,7.4vw,104px);line-height:1;letter-spacing:-0.02em;margin:0 0 44px;max-width:15ch">I turn performance data into <em style="color:var(--accent)">audience growth</em>.</h1>
       <div style="display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:64px;align-items:end">
-        <p style="font-size:19px;color:#4a4a42;margin:0;max-width:56ch;text-wrap:pretty">Campaign strategy, content, and partnerships for sports, media, and consumer brands. UMass Amherst, BS Managerial Economics, May 2026. Bay Area, open to relocation.</p>
+        <p style="font-size:19px;color:var(--m1);margin:0;max-width:56ch;text-wrap:pretty">Campaign strategy, content, and partnerships for sports, media, and consumer brands. UMass Amherst, BS Managerial Economics, May 2026. Bay Area, open to relocation.</p>
         <div style="display:flex;flex-direction:column;gap:10px">
-          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=raihanbangara@gmail.com" target="_blank" rel="noopener" style="text-align:center;padding:16px;background:#1f4fd8;color:#f3f1ec;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="background:#12130f;color:#f3f1ec">Email me</a>
-          <a href="Raihan_Bangara_Resume.pdf" style="text-align:center;padding:16px;border:1px solid #12130f;color:#12130f;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="background:#12130f;color:#f3f1ec">Resume PDF</a>
+          <a href="mailto:raihanbangara@gmail.com" style="text-align:center;padding:16px;background:var(--accent);color:var(--on-panel);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="background:var(--panel);color:var(--on-panel)">Email me</a>
+          <a href="Raihan_Bangara_Resume.pdf" style="text-align:center;padding:16px;border:1px solid #12130f;color:var(--ink);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="background:var(--panel);color:var(--on-panel)">Resume PDF</a>
         </div>
       </div>
     </section>
 
-    <section style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding-bottom:92px">
-      <div style="background:#12130f;color:#f3f1ec;padding:28px 24px 24px;min-height:158px;display:flex;flex-direction:column;justify-content:space-between">
+    <section style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding-bottom:92px">
+      <div style="background:var(--panel);color:var(--on-panel);padding:28px 24px 24px;min-height:158px;display:flex;flex-direction:column;justify-content:space-between">
         <div style="font-family:'Instrument Serif',Georgia,serif;font-size:clamp(38px,4vw,56px);line-height:1">{{ m1 }}</div>
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#a3a196">Social following, 60 days</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--m4)">Social following, 60 days</div>
       </div>
-      <div style="background:#1f4fd8;color:#f3f1ec;padding:28px 24px 24px;min-height:158px;display:flex;flex-direction:column;justify-content:space-between">
+      <div style="background:var(--accent);color:var(--on-panel);padding:28px 24px 24px;min-height:158px;display:flex;flex-direction:column;justify-content:space-between">
         <div style="font-family:'Instrument Serif',Georgia,serif;font-size:clamp(38px,4vw,56px);line-height:1">{{ m2 }}</div>
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#c9d6f8">Engagement lift</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-soft)">Engagement lift</div>
       </div>
-      <div style="border:1px solid #dedbd3;padding:28px 24px 24px;min-height:158px;display:flex;flex-direction:column;justify-content:space-between">
+      <div style="border:1px solid var(--border);padding:28px 24px 24px;min-height:158px;display:flex;flex-direction:column;justify-content:space-between">
         <div style="font-family:'Instrument Serif',Georgia,serif;font-size:clamp(38px,4vw,56px);line-height:1">{{ m3 }}</div>
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#5c5c54">Creators analyzed</div>
-      </div>
-      <div style="border:1px solid #dedbd3;padding:28px 24px 24px;min-height:158px;display:flex;flex-direction:column;justify-content:space-between">
-        <div style="font-family:'Instrument Serif',Georgia,serif;font-size:clamp(38px,4vw,56px);line-height:1">{{ m4 }}</div>
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#5c5c54">Dean's List semesters</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--m2)">Creators analyzed</div>
       </div>
     </section>
 
-    <section id="work" style="border-top:1px solid #dedbd3;padding:56px 0 0">
+    <section id="work" style="border-top:1px solid var(--border);padding:56px 0 0">
       <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:36px">
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#1f4fd8">01 — Selected work</div>
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#8b897e">Three case studies</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)">01 — Selected work</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--m2)">Three case studies</div>
       </div>
-      <div style="border-top:1px solid #dedbd3">
+      <div style="border-top:1px solid var(--border)">
 
-        <a href="dulce-cocina.html" style="display:block;padding:44px 0;border-bottom:1px solid #dedbd3;color:#12130f" style-hover="color:#1f4fd8">
+        <a href="dulce-cocina.html" style="display:block;padding:44px 0;border-bottom:1px solid var(--border);color:var(--ink)" style-hover="color:var(--accent)">
           <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:start">
-            <div style="display:flex;align-items:center;gap:22px">
+            <div style="display:grid;grid-template-columns:140px minmax(0,1fr);align-items:center;gap:22px">
               <img src="assets/dulce-cocina-logo.png" alt="Dulce Cocina" style="width:82px;height:82px;flex:none;display:block;border-radius:50%" />
               <div>
                 <div style="font-family:'Instrument Serif',Georgia,serif;font-size:44px;line-height:1.05;margin-bottom:10px">Dulce Cocina</div>
-                <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#8b897e">Full stack · 2026</div>
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--m2)">Full stack · 2026</div>
               </div>
             </div>
             <div>
-              <p style="font-size:16.5px;color:#4a4a42;margin:0 0 18px;text-wrap:pretty">A production bakery storefront: catalog, cart, UPI payments, PostgreSQL order records, and transactional email. Researched the stack, shipped it, and debugged it alone with no prior engineering background.</p>
-              <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#1f4fd8">Read the case study →</span>
+              <p style="font-size:16.5px;color:var(--m1);margin:0 0 18px;text-wrap:pretty">A production bakery storefront: catalog, cart, UPI payments, PostgreSQL order records, and transactional email. Researched the stack, shipped it, and debugged it alone with no prior engineering background.</p>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)">Read the case study →</span>
             </div>
           </div>
         </a>
 
-        <a href="jiostar.html" style="display:block;padding:44px 0;border-bottom:1px solid #dedbd3;color:#12130f" style-hover="color:#1f4fd8">
+        <a href="jiostar.html" style="display:block;padding:44px 0;border-bottom:1px solid var(--border);color:var(--ink)" style-hover="color:var(--accent)">
           <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:start">
-            <div style="display:flex;align-items:center;gap:22px">
-              <img src="assets/jiostar-logo.png" alt="JioStar" style="width:110px;height:82px;flex:none;object-fit:contain;background:#020633;border-radius:10px;padding:10px;display:block" />
+            <div style="display:grid;grid-template-columns:140px minmax(0,1fr);align-items:center;gap:22px">
+              <img src="assets/jiostar-logo.png" alt="JioStar" style="width:140px;height:82px;box-sizing:border-box;flex:none;object-fit:contain;display:block">
               <div>
                 <div style="font-family:'Instrument Serif',Georgia,serif;font-size:44px;line-height:1.05;margin-bottom:10px">JioStar</div>
-                <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#8b897e">Sports marketing · 2025</div>
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--m2)">Sports marketing · 2025</div>
               </div>
             </div>
             <div>
-              <p style="font-size:16.5px;color:#4a4a42;margin:0 0 18px;text-wrap:pretty">Marketing briefs and campaign strategy across Premier League, Wimbledon, US Open, SA20, and Pro Kabaddi. My concept was selected for the Premier League teaser ad, aired to hundreds of millions.</p>
-              <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#1f4fd8">Read the case study →</span>
+              <p style="font-size:16.5px;color:var(--m1);margin:0 0 18px;text-wrap:pretty">Marketing briefs and campaign strategy across Premier League, Wimbledon, US Open, SA20, and Pro Kabaddi. My concept was selected for the Premier League teaser ad, aired to hundreds of millions.</p>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)">Read the case study →</span>
             </div>
           </div>
         </a>
 
-        <a href="verix.html" style="display:block;padding:44px 0;border-bottom:1px solid #dedbd3;color:#12130f" style-hover="color:#1f4fd8">
+        <a href="verix.html" style="display:block;padding:44px 0;border-bottom:1px solid var(--border);color:var(--ink)" style-hover="color:var(--accent)">
           <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:start">
-            <div style="display:flex;align-items:center;gap:22px">
-              <img src="assets/verix-logo.png" alt="Verix" style="width:82px;height:82px;flex:none;object-fit:contain;background:#ffffff;border:1px solid #dedbd3;padding:8px;display:block" />
+            <div style="display:grid;grid-template-columns:140px minmax(0,1fr);align-items:center;gap:22px">
+              <img src="assets/verix-logo.png" alt="Verix" style="width:82px;height:82px;box-sizing:border-box;flex:none;object-fit:contain;background:var(--card);border:1px solid var(--border);padding:8px;display:block" />
               <div>
                 <div style="font-family:'Instrument Serif',Georgia,serif;font-size:44px;line-height:1.05;margin-bottom:10px">Verix</div>
-                <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#8b897e">Growth · 2024</div>
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--m2)">Growth · 2024</div>
               </div>
             </div>
             <div>
-              <p style="font-size:16.5px;color:#4a4a42;margin:0 0 18px;text-wrap:pretty">Owned the content calendar and editorial pipeline across four platforms, plus a competitor intelligence repository covering 15 companies. Following went 11,500 to 15,000+, engagement 22.3% to 38%.</p>
-              <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#1f4fd8">Read the case study →</span>
+              <p style="font-size:16.5px;color:var(--m1);margin:0 0 18px;text-wrap:pretty">Owned the content calendar and editorial pipeline across four platforms, plus a competitor intelligence repository covering 15 companies. Following went 11,500 to 15,000+, engagement 22.3% to 38%.</p>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)">Read the case study →</span>
             </div>
           </div>
         </a>
@@ -120,22 +129,22 @@
 
     <section id="about" style="padding:100px 0;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:76px">
       <div>
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#1f4fd8;margin-bottom:28px">02 — About</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:28px">02 — About</div>
         <p style="font-family:'Instrument Serif',Georgia,serif;font-size:32px;line-height:1.25;margin:0 0 22px;text-wrap:pretty">I am a marketing person who likes the mechanics.</p>
-        <p style="font-size:16.5px;color:#4a4a42;margin:0 0 16px;text-wrap:pretty">My work sits where campaign strategy meets the numbers behind it: content calendars, audience data, competitive research, and occasionally the code itself.</p>
-        <p style="font-size:16.5px;color:#4a4a42;margin:0 0 32px;text-wrap:pretty">Teaching myself full stack development well enough to ship a production storefront made me better at working with the people who build for a living. I am looking for growth marketing, business development, and sports or media marketing roles.</p>
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#5c5c54;margin-bottom:14px">Beyond work</div>
-        <p style="font-size:16.5px;color:#4a4a42;margin:0;max-width:56ch;text-wrap:pretty">FC Barcelona, the 49ers, and Ferrari, in roughly that order of suffering. Building new things, the gym, chasing reservations I have no business getting, and a deeply committed long-term relationship with fast food.</p>
+        <p style="font-size:16.5px;color:var(--m1);margin:0 0 16px;text-wrap:pretty">My work sits where campaign strategy meets the numbers behind it: content calendars, audience data, competitive research, and occasionally the code itself.</p>
+        <p style="font-size:16.5px;color:var(--m1);margin:0 0 32px;text-wrap:pretty">Teaching myself full stack development well enough to ship a production storefront made me better at working with the people who build for a living. I am looking for growth marketing, business development, and sports or media marketing roles.</p>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--m2);margin-bottom:14px">Beyond work</div>
+        <p style="font-size:16.5px;color:var(--m1);margin:0;max-width:56ch;text-wrap:pretty">FC Barcelona, the 49ers, and Ferrari, in roughly that order of suffering. Building new things, the gym, chasing reservations I have no business getting, and a deeply committed long-term relationship with fast food.</p>
       </div>
       <div>
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#5c5c54;margin-bottom:20px">Previously</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--m2);margin-bottom:20px">Previously</div>
         <div style="display:flex;flex-direction:column;margin-bottom:40px">
-          <div style="display:flex;justify-content:space-between;gap:16px;font-size:15px;color:#4a4a42;border-bottom:1px solid #dedbd3;padding:13px 0"><span style="color:#12130f">Universal Music Group</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px">Marketing · 2023</span></div>
-          <div style="display:flex;justify-content:space-between;gap:16px;font-size:15px;color:#4a4a42;border-bottom:1px solid #dedbd3;padding:13px 0"><span style="color:#12130f">Qyuki Digital Media</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px">Analyst · 2022</span></div>
-          <div style="display:flex;justify-content:space-between;gap:16px;font-size:15px;color:#4a4a42;border-bottom:1px solid #dedbd3;padding:13px 0"><span style="color:#12130f">Collective Artists Network</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px">Sponsorship · 2022</span></div>
-          <div style="display:flex;justify-content:space-between;gap:16px;font-size:15px;color:#4a4a42;border-bottom:1px solid #dedbd3;padding:13px 0"><span style="color:#12130f">TEDxPIS, co-organizer</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px">3.4M-follower keynote</span></div>
+          <div style="display:flex;justify-content:space-between;gap:16px;font-size:15px;color:var(--m1);border-bottom:1px solid var(--border);padding:13px 0"><span style="color:var(--ink)">Universal Music Group</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px">Marketing · 2023</span></div>
+          <div style="display:flex;justify-content:space-between;gap:16px;font-size:15px;color:var(--m1);border-bottom:1px solid var(--border);padding:13px 0"><span style="color:var(--ink)">Qyuki Digital Media</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px">Analyst · 2022</span></div>
+          <div style="display:flex;justify-content:space-between;gap:16px;font-size:15px;color:var(--m1);border-bottom:1px solid var(--border);padding:13px 0"><span style="color:var(--ink)">Collective Artists Network</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px">Sponsorship · 2022</span></div>
+          <div style="display:flex;justify-content:space-between;gap:16px;font-size:15px;color:var(--m1);border-bottom:1px solid var(--border);padding:13px 0"><span style="color:var(--ink)">TEDxPIS, co-organizer</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px">3.4M-follower keynote</span></div>
         </div>
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#5c5c54;margin-bottom:16px">Tools</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--m2);margin-bottom:16px">Tools</div>
         <div style="display:flex;flex-wrap:wrap;gap:8px">
           <span style="border:1px solid #cfccc3;font-size:13px;padding:6px 13px">Excel / Sheets</span>
           <span style="border:1px solid #cfccc3;font-size:13px;padding:6px 13px">SQL</span>
@@ -150,14 +159,14 @@
       </div>
     </section>
 
-    <footer id="contact" style="background:#12130f;color:#f3f1ec;margin:0 -44px;padding:84px 44px 56px">
+    <footer id="contact" style="background:var(--panel);color:var(--on-panel);margin:0 -44px;padding:84px 44px 56px">
       <div style="max-width:1092px;margin:0 auto">
         <h2 style="font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(40px,5.6vw,76px);line-height:1.02;margin:0 0 40px">Let's talk.</h2>
         <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:56px">
-          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=raihanbangara@gmail.com" target="_blank" rel="noopener" style="padding:18px 32px;background:#1f4fd8;color:#f3f1ec;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="background:#f3f1ec;color:#12130f">raihanbangara@gmail.com</a>
-          <a href="https://linkedin.com/in/raihan-bangara" style="padding:18px 32px;border:1px solid #3a3b34;color:#f3f1ec;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="border-color:#f3f1ec;color:#f3f1ec">LinkedIn</a>
+          <a href="mailto:raihanbangara@gmail.com" style="padding:18px 32px;background:var(--accent);color:var(--on-panel);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="background:var(--bg);color:var(--ink)">raihanbangara@gmail.com</a>
+          <a href="https://linkedin.com/in/raihan-bangara" style="padding:18px 32px;border:1px solid var(--border-dark);color:var(--on-panel);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="border-color:var(--on-panel);color:var(--on-panel)">LinkedIn</a>
         </div>
-        <div style="display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#7c7c72"><span>Raihan Samir Bangara</span><span>Bay Area · Open to relocation · 2026</span></div>
+        <div style="display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--m3)"><span>Raihan Samir Bangara</span><span>Bay Area · Open to relocation · 2026</span></div>
       </div>
     </footer>
   </div>

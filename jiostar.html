@@ -13,35 +13,56 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  body { margin:0; background:#f3f1ec; }
-  a { color:#a33b2a; text-decoration:none; }
-  a:hover { color:#12130f; }
+  :root{
+    --bg:#eaeee8; --ink:#12130f; --panel:#12130f; --on-panel:#eaeee8; --card:#ffffff;
+    --border:#d3dacf; --border-dark:#3b423c; --accent:#2f5d45; --accent-soft:#b4cdbf;
+    --m1:#444b45; --m2:#565f57; --m3:#787f79; --m4:#9fa89f;
+    --cream-bg:#f7ece3; --cream-border:#e3d6c9; --cream-ink:#4a2c1c; --cream-mid:#7b5a45; --cream-label:#a6836b;
+  }
+  :root[data-theme="dark"]{
+    --bg:#12170f; --ink:#e8ece4; --panel:#1a2016; --on-panel:#e8ece4; --card:#1a2016;
+    --border:#2b332a; --border-dark:#2b332a; --accent:#8fbf9e; --accent-soft:#25402c;
+    --m1:#a9b3a5; --m2:#98a294; --m3:#87917f; --m4:#6f7a6b;
+    --cream-bg:#1d1712; --cream-border:#33291f; --cream-ink:#f0e2d4; --cream-mid:#c9ae98; --cream-label:#c9a184;
+  }
+  body { margin:0; background:var(--bg); }
+  a { color:var(--accent); text-decoration:none; }
+  a:hover { color:var(--ink); }
 </style>
+<script src="./theme.js"></script>
 </helmet>
-<div style="background:#f3f1ec;color:#12130f;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh">
+<div style="background:var(--bg);color:var(--ink);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh">
   <div style="max-width:1180px;margin:0 auto;padding:0 44px">
 
-    <header style="display:flex;justify-content:space-between;align-items:center;padding:26px 0;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#5c5c54">
-      <a href="index.html" style="color:#12130f">← Raihan Bangara</a>
+    <header style="display:flex;justify-content:space-between;align-items:center;padding:26px 0;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--m2)">
+      <a href="index.html" style="color:var(--ink)">← Raihan Bangara</a>
       <div style="display:flex;gap:26px">
-        <a href="dulce-cocina.html" style="color:#5c5c54">Dulce Cocina</a>
-        <a href="verix.html" style="color:#5c5c54">Verix</a>
+        <a href="dulce-cocina.html" style="color:var(--m2)">Dulce Cocina</a>
+        <a href="verix.html" style="color:var(--m2)">Verix</a>
       </div>
     </header>
 
-    <section style="border-top:1px solid #dedbd3;padding:88px 0 60px;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:72px;align-items:end">
+    <section style="border-top:1px solid var(--border);padding:88px 0 60px;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:72px;align-items:end">
       <div>
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#a33b2a;margin-bottom:30px">Case study 02 · Sports marketing · 2025</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:30px">Case study 02 · Sports marketing · 2025</div>
         <h1 style="font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(44px,6.6vw,88px);line-height:1.02;letter-spacing:-0.02em;margin:0 0 28px">JioStar</h1>
-        <p style="font-size:21px;color:#4a4a42;margin:0;max-width:52ch;text-wrap:pretty">Integrated marketing briefs and campaign strategy for Premier League programming and other live sports properties across the Star Sports network.</p>
+        <p style="font-size:21px;color:var(--m1);margin:0;max-width:52ch;text-wrap:pretty">Integrated marketing briefs and campaign strategy for Premier League programming and other live sports properties across the Star Sports network.</p>
       </div>
-      <div style="display:flex;flex-direction:column;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#5c5c54">
-        <div style="display:flex;justify-content:space-between;border-bottom:1px solid #dedbd3;padding-bottom:11px"><span>Role</span><span style="color:#12130f">Sports marketing</span></div>
-        <div style="display:flex;justify-content:space-between;border-bottom:1px solid #dedbd3;padding-bottom:11px"><span>Where</span><span style="color:#12130f">Mumbai, India</span></div>
-        <div style="display:flex;justify-content:space-between;border-bottom:1px solid #dedbd3;padding-bottom:11px"><span>Properties</span><span style="color:#12130f">Six live sports</span></div>
-        <div style="display:flex;justify-content:space-between;border-bottom:1px solid #dedbd3;padding-bottom:11px"><span>Outcome</span><span style="color:#a33b2a">Concept aired</span></div>
+      <div style="display:flex;flex-direction:column;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--m2)">
+        <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--border);padding-bottom:11px"><span>Role</span><span style="color:var(--ink)">Sports marketing</span></div>
+        <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--border);padding-bottom:11px"><span>Where</span><span style="color:var(--ink)">Mumbai, India</span></div>
+        <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--border);padding-bottom:11px"><span>Properties</span><span style="color:var(--ink)">Six live sports</span></div>
+        <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--border);padding-bottom:11px"><span>Outcome</span><span style="color:var(--accent)">Concept aired</span></div>
       </div>
     </section>
+
+    <div style="display:grid;grid-template-columns:210px minmax(0,1fr);align-items:center;gap:44px;background:var(--card);border:1px solid var(--border);padding:44px 48px;margin-bottom:64px">
+      <img src="assets/jiostar-logo.png" alt="JioStar" style="width:100%;height:auto;display:block" />
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--m3);margin-bottom:18px">The network</div>
+        <p style="font-family:'Instrument Serif',Georgia,serif;font-size:28px;line-height:1.3;margin:0;text-wrap:pretty">JioStar is India&#39;s largest sports and entertainment broadcaster — the home of the Premier League, cricket, and every property competing for the same viewer on the same night.</p>
+      </div>
+    </div>
 
     <figure style="margin:0 0 88px">
       <div style="{{ frameStyle }}">
@@ -66,10 +87,10 @@
     </figure>
 
     <section style="display:grid;grid-template-columns:220px minmax(0,1fr);gap:56px;padding-bottom:76px">
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#a33b2a">The work</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)">The work</div>
       <div style="max-width:66ch">
         <p style="font-family:'Instrument Serif',Georgia,serif;font-size:29px;line-height:1.3;margin:0 0 20px;text-wrap:pretty">Seven marketing briefs and campaign decks across six live sports properties, written for an audience that watches on national television.</p>
-        <p style="font-size:17px;color:#4a4a42;margin:0 0 30px;text-wrap:pretty">I sat in on strategy meetings and turned them into briefs covering audience engagement and seasonal campaign planning for Wimbledon, the US Open, the Premier League, SA20, Pro Kabaddi, and the India versus England test series. Each one had to hold up in front of senior leadership, and several were later shared with external league partners.</p>
+        <p style="font-size:17px;color:var(--m1);margin:0 0 30px;text-wrap:pretty">I sat in on strategy meetings and turned them into briefs covering audience engagement and seasonal campaign planning for Wimbledon, the US Open, the Premier League, SA20, Pro Kabaddi, and the India versus England test series. Each one had to hold up in front of senior leadership, and several were later shared with external league partners.</p>
         <div style="display:flex;flex-wrap:wrap;gap:8px">
           <span style="border:1px solid #cfccc3;font-size:13px;padding:6px 14px">Premier League</span>
           <span style="border:1px solid #cfccc3;font-size:13px;padding:6px 14px">Wimbledon</span>
@@ -81,44 +102,44 @@
       </div>
     </section>
 
-    <section style="border-top:1px solid #dedbd3;padding:60px 0 76px;display:grid;grid-template-columns:220px minmax(0,1fr);gap:56px">
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#a33b2a">The teaser</div>
+    <section style="border-top:1px solid var(--border);padding:60px 0 76px;display:grid;grid-template-columns:220px minmax(0,1fr);gap:56px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)">The teaser</div>
       <div>
-        <div style="background:#a33b2a;color:#f3f1ec;padding:44px 40px;margin-bottom:28px">
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#efd3cc;margin-bottom:18px">Selected concept</div>
+        <div style="background:var(--accent);color:var(--on-panel);padding:44px 40px;margin-bottom:28px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-soft);margin-bottom:18px">Selected concept</div>
           <p style="font-family:'Instrument Serif',Georgia,serif;font-size:clamp(28px,3.4vw,44px);line-height:1.18;margin:0;max-width:24ch">My concept was chosen for the Premier League teaser ad and aired to hundreds of millions of viewers on cable TV across the country.</p>
         </div>
-        <p style="font-size:17px;color:#4a4a42;margin:0;max-width:66ch;text-wrap:pretty">I pitched multiple teaser directions for the campaign. One was selected from my submission, produced, and aired on the Star Sports network during marquee programming. I also presented strategic recommendations to senior leadership and external league stakeholders, which shaped how the final campaign ran.</p>
+        <p style="font-size:17px;color:var(--m1);margin:0;max-width:66ch;text-wrap:pretty">I pitched multiple teaser directions for the campaign. One was selected from my submission, produced, and aired on the Star Sports network during marquee programming. I also presented strategic recommendations to senior leadership and external league stakeholders, which shaped how the final campaign ran.</p>
       </div>
     </section>
 
-    <section style="border-top:1px solid #dedbd3;padding:60px 0 88px">
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#a33b2a;margin-bottom:30px">What I took from it</div>
+    <section style="border-top:1px solid var(--border);padding:60px 0 88px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:30px">What I took from it</div>
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
-        <div style="background:#ffffff;border:1px solid #dedbd3;padding:28px 26px">
+        <div style="background:var(--card);border:1px solid var(--border);padding:28px 26px">
           <div style="font-family:'Instrument Serif',Georgia,serif;font-size:24px;line-height:1.2;margin-bottom:10px">Writing for scale</div>
-          <p style="font-size:15px;color:#4a4a42;margin:0;text-wrap:pretty">A brief for national broadcast has to be unambiguous. There is no second draft once the spot is cut.</p>
+          <p style="font-size:15px;color:var(--m1);margin:0;text-wrap:pretty">A brief for national broadcast has to be unambiguous. There is no second draft once the spot is cut.</p>
         </div>
-        <div style="background:#ffffff;border:1px solid #dedbd3;padding:28px 26px">
+        <div style="background:var(--card);border:1px solid var(--border);padding:28px 26px">
           <div style="font-family:'Instrument Serif',Georgia,serif;font-size:24px;line-height:1.2;margin-bottom:10px">Reading the room</div>
-          <p style="font-size:15px;color:#4a4a42;margin:0;text-wrap:pretty">Presenting to leadership and to league partners are two different pitches for the same idea.</p>
+          <p style="font-size:15px;color:var(--m1);margin:0;text-wrap:pretty">Presenting to leadership and to league partners are two different pitches for the same idea.</p>
         </div>
-        <div style="background:#ffffff;border:1px solid #dedbd3;padding:28px 26px">
+        <div style="background:var(--card);border:1px solid var(--border);padding:28px 26px">
           <div style="font-family:'Instrument Serif',Georgia,serif;font-size:24px;line-height:1.2;margin-bottom:10px">Season shape</div>
-          <p style="font-size:15px;color:#4a4a42;margin:0;text-wrap:pretty">Sports marketing runs on fixture calendars. Planning against them is most of the job.</p>
+          <p style="font-size:15px;color:var(--m1);margin:0;text-wrap:pretty">Sports marketing runs on fixture calendars. Planning against them is most of the job.</p>
         </div>
       </div>
     </section>
 
-    <footer style="background:#12130f;color:#f3f1ec;margin:0 -44px;padding:72px 44px 52px">
+    <footer style="background:var(--panel);color:var(--on-panel);margin:0 -44px;padding:72px 44px 52px">
       <div style="max-width:1092px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap">
         <div>
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#7c7c72;margin-bottom:14px">Next case study</div>
-          <a href="verix.html" style="font-family:'Instrument Serif',Georgia,serif;font-size:clamp(34px,4.4vw,58px);line-height:1;color:#f3f1ec" style-hover="color:#e0a394">Verix →</a>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--m3);margin-bottom:14px">Next case study</div>
+          <a href="verix.html" style="font-family:'Instrument Serif',Georgia,serif;font-size:clamp(34px,4.4vw,58px);line-height:1;color:var(--on-panel)" style-hover="color:var(--accent-soft)">Verix →</a>
         </div>
         <div style="display:flex;gap:14px">
-          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=raihanbangara@gmail.com" target="_blank" rel="noopener" style="padding:16px 28px;background:#a33b2a;color:#f3f1ec;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="background:#f3f1ec;color:#12130f">Email</a>
-          <a href="https://linkedin.com/in/raihan-bangara" style="padding:16px 28px;border:1px solid #3a3b34;color:#f3f1ec;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="border-color:#f3f1ec;color:#f3f1ec">LinkedIn</a>
+          <a href="mailto:raihanbangara@gmail.com" style="padding:16px 28px;background:var(--accent);color:var(--on-panel);font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="background:var(--bg);color:var(--ink)">Email</a>
+          <a href="https://linkedin.com/in/raihan-bangara" style="padding:16px 28px;border:1px solid var(--border-dark);color:var(--on-panel);font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="border-color:var(--on-panel);color:var(--on-panel)">LinkedIn</a>
         </div>
       </div>
     </footer>
@@ -126,14 +147,14 @@
 </div>
 
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900},&quot;accentColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#a33b2a&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#a33b2a&quot;,&quot;#12130f&quot;,&quot;#a33b2a&quot;,&quot;#2f6d4f&quot;],&quot;section&quot;:&quot;Theme&quot;},&quot;videoFrame&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;Dark frame&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;Dark frame&quot;,&quot;Light frame&quot;,&quot;No frame&quot;],&quot;section&quot;:&quot;Teaser&quot;},&quot;playInline&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Teaser&quot;}}">class Component extends DCLogic {
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900},&quot;accentColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#2f5d45&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;var(--accent)&quot;,&quot;#12130f&quot;,&quot;var(--accent)&quot;,&quot;#2f6d4f&quot;],&quot;section&quot;:&quot;Theme&quot;},&quot;videoFrame&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;Dark frame&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;Dark frame&quot;,&quot;Light frame&quot;,&quot;No frame&quot;],&quot;section&quot;:&quot;Teaser&quot;},&quot;playInline&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Teaser&quot;}}">class Component extends DCLogic {
   state = { playing: false };
   renderVals() {
     const id = 'zusgg_MfSHs';
-    const accent = this.props.accentColor ?? '#a33b2a';
+    const accent = this.props.accentColor ?? 'var(--accent)';
     const frame = this.props.videoFrame ?? 'Dark frame';
-    const frameStyle = frame === 'Dark frame' ? 'background:#12130f;padding:22px'
-      : frame === 'Light frame' ? 'background:#ffffff;border:1px solid #dedbd3;padding:22px'
+    const frameStyle = frame === 'Dark frame' ? 'background:var(--panel);padding:22px'
+      : frame === 'Light frame' ? 'background:var(--card);border:1px solid var(--border);padding:22px'
       : 'padding:0';
     return {
       accent, frameStyle,
@@ -145,7 +166,7 @@
         e.preventDefault();
         this.setState({ playing: true });
       },
-      playBadgeStyle: 'width:76px;height:76px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;padding-left:4px;color:#f3f1ec;background:' + accent
+      playBadgeStyle: 'width:76px;height:76px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;padding-left:4px;color:var(--on-panel);background:' + accent
     };
   }
 }</script>
