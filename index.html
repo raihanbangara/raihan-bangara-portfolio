@@ -28,6 +28,11 @@
   body { margin:0; background:var(--bg); }
   a { color:var(--accent); text-decoration:none; }
   a:hover { color:var(--ink); }
+  .prev-item summary { list-style:none }
+  .prev-item summary::-webkit-details-marker { display:none }
+  .prev-arrow { display:inline-block; transition:transform .18s ease }
+  .prev-item[open] .prev-arrow { transform:rotate(90deg) }
+  .prev-body li { font-size:14px; color:#4a4a42; margin-bottom:6px }
 </style>
 <script src="./theme.js"></script>
 </helmet>
@@ -139,10 +144,29 @@
       <div>
         <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--m2);margin-bottom:20px">Previously</div>
         <div style="display:flex;flex-direction:column;margin-bottom:40px">
-          <div style="display:flex;justify-content:space-between;gap:16px;font-size:15px;color:var(--m1);border-bottom:1px solid var(--border);padding:13px 0"><span style="color:var(--ink)">Universal Music Group</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px">Marketing · 2023</span></div>
-          <div style="display:flex;justify-content:space-between;gap:16px;font-size:15px;color:var(--m1);border-bottom:1px solid var(--border);padding:13px 0"><span style="color:var(--ink)">Qyuki Digital Media</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px">Analyst · 2022</span></div>
-          <div style="display:flex;justify-content:space-between;gap:16px;font-size:15px;color:var(--m1);border-bottom:1px solid var(--border);padding:13px 0"><span style="color:var(--ink)">Collective Artists Network</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px">Sponsorship · 2022</span></div>
-          <div style="display:flex;justify-content:space-between;gap:16px;font-size:15px;color:var(--m1);border-bottom:1px solid var(--border);padding:13px 0"><span style="color:var(--ink)">TEDxPIS, co-organizer</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px">3.4M-follower keynote</span></div>
+          <details class="prev-item">
+            <summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:15px;color:var(--m1);border-bottom:1px solid var(--border);padding:13px 0;cursor:pointer"><span style="color:var(--ink)">Universal Music Group</span><span style="display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:12px"><span>Marketing · 2023</span><span class="prev-arrow">›</span></span></summary>
+            <ul class="prev-body" style="margin:0;padding:12px 0 12px 18px">
+              <li>Supported a marketing initiative introducing 5 emerging artists to college audiences, driving engagement and brand awareness across campus channels</li>
+              <li>Organized a college music festival showcasing new talent, drawing an audience of 15,000+ and creating visibility for the label's artist roster</li>
+              <li>Sat in on senior leadership meetings with the MD, contributing to internal discussions on artist marketing strategy and label operations</li>
+            </ul>
+          </details>
+          <details class="prev-item">
+            <summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:15px;color:var(--m1);border-bottom:1px solid var(--border);padding:13px 0;cursor:pointer"><span style="color:var(--ink)">Qyuki Digital Media</span><span style="display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:12px"><span>Analyst · 2022</span><span class="prev-arrow">›</span></span></summary>
+            <ul class="prev-body" style="margin:0;padding:12px 0 12px 18px">
+              <li>Conducted performance analysis across 250 content creators in Qyuki's network, evaluating impact, audience reach, and commercial value to inform strategic decisions</li>
+              <li>Flagged the top and bottom 15% of creators, who accounted for roughly 30% of total network reach, to guide leadership's network strategy</li>
+            </ul>
+          </details>
+          <details class="prev-item">
+            <summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:15px;color:var(--m1);border-bottom:1px solid var(--border);padding:13px 0;cursor:pointer"><span style="color:var(--ink)">Collective Artists Network</span><span style="display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:12px"><span>Sponsorship · 2022</span><span class="prev-arrow">›</span></span></summary>
+            <ul class="prev-body" style="margin:0;padding:12px 0 12px 18px">
+              <li>Conducted sponsorship research evaluating athlete, celebrity, and brand alignment opportunities</li>
+              <li>Developed partnership recommendations supporting sports sponsorship initiatives</li>
+              <li>Assisted with sponsorship strategy and stakeholder outreach during partnership discussions</li>
+            </ul>
+          </details>
         </div>
         <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--m2);margin-bottom:16px">Tools</div>
         <div style="display:flex;flex-wrap:wrap;gap:8px">
