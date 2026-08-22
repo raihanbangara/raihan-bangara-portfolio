@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Raihan Bangara — Places</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<script src="https://unpkg.com/d3@7.9.0/dist/d3.min.js" integrity="sha384-CjloA8y00+1SDAUkjs099PVfnY2KmDC2BZnws9kh8D/lX1s46w6EPhpXdqMfjK6i" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js" integrity="sha384-Ukv1p/xTma6P4/2bY5KzWBw+ydSpXmhCMtyciIQVDJ1RmOxtCYNMF1uXT9T63H67" crossorigin="anonymous"></script>
+<style>
+  :root{
+    --bg:#eaeee8; --ink:#12130f; --panel:#12130f; --on-panel:#eaeee8; --card:#ffffff;
+    --border:#d3dacf; --border-dark:#3b423c; --accent:#2f5d45; --accent-soft:#b4cdbf;
+    --m1:#444b45; --m2:#565f57; --m3:#787f79; --m4:#9fa89f;
+    --land:#dbe2d6; --land-line:#c3ccbe; --grat:#dde3d8; --sphere:#c3ccbe;
+  }
+  :root[data-theme="dark"]{
+    --bg:#12170f; --ink:#e8ece4; --panel:#1a2016; --on-panel:#e8ece4; --card:#1a2016;
+    --border:#2b332a; --border-dark:#2b332a; --accent:#8fbf9e; --accent-soft:#25402c;
+    --m1:#a9b3a5; --m2:#98a294; --m3:#87917f; --m4:#6f7a6b;
+    --land:#232c20; --land-line:#334031; --grat:#1e261c; --sphere:#33402f;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;line-height:1.55}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{color:var(--ink)}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 44px}
+  .mono{font-family:'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase}
+  #globe{display:block;width:100%;height:100%;cursor:grab;touch-action:none}
+  #globe.dragging{cursor:grabbing}
+  #tip{position:absolute;pointer-events:none;opacity:0;transform:translate(-50%,-140%);transition:opacity .12s;
+       background:var(--panel);color:var(--on-panel);padding:9px 13px;white-space:nowrap;z-index:5}
+  .row{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:11px 0;border-bottom:1px solid var(--border);cursor:default;font-size:14.5px;color:var(--m1);transition:color .12s}
+  .row > span{white-space:nowrap}
+  .row > span:last-child{flex:none}
+  .row:hover{color:var(--ink)}
+  .row.on{color:var(--accent)}
+  /* keep the fixed theme pill out of the city-list lane on narrow-ish viewports */
+  @media (max-width:1260px){ #side{padding-right:66px} }
+  @media (max-width:900px){
+    .split{grid-template-columns:1fr !important}
+    .wrap{padding:0 22px}
+    #side{padding-right:0;padding-bottom:76px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header style="display:flex;justify-content:space-between;align-items:center;padding:26px 0;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--m2);font-family:'IBM Plex Mono',monospace">
+    <a href="Raihan%20Bangara.dc.html" style="color:var(--ink)">← Raihan Bangara</a>
+    <span>Places</span>
+  </header>
+
+  <section style="border-top:1px solid var(--border);padding:76px 0 44px">
+    <div class="mono" style="font-size:12px;letter-spacing:.16em;color:var(--accent);margin-bottom:30px">03 — Where I've been</div>
+    <h1 style="font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(42px,6vw,84px);line-height:1.02;letter-spacing:-.02em;margin:0 0 28px;max-width:18ch">Every city that taught me something.</h1>
+    <p style="font-size:18px;color:var(--m1);margin:0;max-width:58ch;text-wrap:pretty">Drag to spin the globe. Hover a dot for the city and country — or hover the list to find it.</p>
+  </section>
+
+  <section class="split" style="display:grid;grid-template-columns:minmax(0,1fr) 356px;gap:56px;align-items:start;padding-bottom:96px">
+    <div style="position:relative;aspect-ratio:1/1;min-height:360px">
+      <canvas id="globe"></canvas>
+      <div id="tip">
+        <div class="mono" id="tip-city" style="font-size:13px;letter-spacing:.06em;color:var(--on-panel)"></div>
+        <div class="mono" id="tip-country" style="font-size:10.5px;color:var(--m4);margin-top:4px"></div>
+      </div>
+    </div>
+    <div id="side">
+      <div class="mono" style="font-size:12px;letter-spacing:.16em;color:var(--m2);margin-bottom:8px"><span id="count">0</span> cities · <span id="countries">0</span> countries</div>
+      <div id="list" style="border-top:1px solid var(--border)"></div>
+      <p class="mono" style="font-size:10.5px;letter-spacing:.1em;color:var(--m4);margin-top:22px;margin-bottom:64px;line-height:1.8">Geometry: Natural Earth<br>via world-atlas + d3-geo</p>
+    </div>
+  </section>
+
+  <footer style="background:var(--panel);color:var(--on-panel);margin:0 -44px;padding:64px 44px 48px">
+    <div style="max-width:1092px;margin:0 auto;display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:20px">
+      <a href="Raihan%20Bangara.dc.html" style="font-family:'Instrument Serif',Georgia,serif;font-size:34px;color:var(--on-panel)">Back to the work →</a>
+      <span class="mono" style="font-size:11px;letter-spacing:.1em;color:var(--m3)">Bay Area · 2026</span>
+    </div>
+  </footer>
+</div>
+
+<script>
+// ——— Edit this list: name, country, [longitude, latitude], optional note ———
+const CITIES = [
+  { city:'Mumbai',        country:'India',          coords:[72.8777, 19.0760] },
+  { city:'Pune',          country:'India',          coords:[73.8567, 18.5204] },
+  { city:'Aurangabad',    country:'India',          coords:[75.3433, 19.8762] },
+  { city:'Bhopal',        country:'India',          coords:[77.4126, 23.2599] },
+  { city:'New Delhi',     country:'India',          coords:[77.2090, 28.6139] },
+  { city:'Chandigarh',    country:'India',          coords:[76.7794, 30.7333] },
+  { city:'Shimla',        country:'India',          coords:[77.1734, 31.1048] },
+  { city:'Kashmir',       country:'India',          coords:[74.7973, 34.0837] },
+  { city:'Kolkata',       country:'India',          coords:[88.3639, 22.5726] },
+  { city:'Hyderabad',     country:'India',          coords:[78.4867, 17.3850] },
+  { city:'Bengaluru',     country:'India',          coords:[77.5946, 12.9716] },
+  { city:'Colombo',       country:'Sri Lanka',      coords:[79.8612, 6.9271] },
+  { city:'Cairo',         country:'Egypt',          coords:[31.2357, 30.0444] },
+  { city:'Johannesburg',  country:'South Africa',   coords:[28.0473, -26.2041] },
+  { city:'Cape Town',     country:'South Africa',   coords:[18.4241, -33.9249] },
+  { city:'Reykjavík',     country:'Iceland',        coords:[-21.8277, 64.1265] },
+  { city:'London',        country:'United Kingdom', coords:[-0.1276, 51.5072] },
+  { city:'Paris',         country:'France',         coords:[2.3522, 48.8566] },
+  { city:'Nice',          country:'France',         coords:[7.2620, 43.7102] },
+  { city:'Milan',         country:'Italy',          coords:[9.1900, 45.4642] },
+  { city:'Florence',      country:'Italy',          coords:[11.2558, 43.7696] },
+  { city:'Barcelona',     country:'Spain',          coords:[2.1734, 41.3851] },
+  { city:'Madrid',        country:'Spain',          coords:[-3.7038, 40.4168] },
+  { city:'Lisbon',        country:'Portugal',       coords:[-9.1393, 38.7223] },
+  { city:'Boston',        country:'United States',  coords:[-71.0589, 42.3601] },
+  { city:'New York',      country:'United States',  coords:[-74.0060, 40.7128] },
+  { city:'Miami',         country:'United States',  coords:[-80.1918, 25.7617] },
+  { city:'Mexico City',   country:'Mexico',         coords:[-99.1332, 19.4326] },
+  { city:'Phoenix',       country:'United States',  coords:[-112.0740, 33.4484] },
+  { city:'Las Vegas',     country:'United States',  coords:[-115.1398, 36.1699] },
+  { city:'Los Angeles',   country:'United States',  coords:[-118.2437, 34.0522] },
+  { city:'San Francisco', country:'United States',  coords:[-122.4194, 37.7749] },
+  { city:'Seattle',       country:'United States',  coords:[-122.3321, 47.6062] },
+  { city:'Vancouver',     country:'Canada',         coords:[-123.1207, 49.2827] },
+  { city:'Ketchikan',     country:'Alaska, USA',    coords:[-131.6461, 55.3422] },
+  { city:'Juneau',        country:'Alaska, USA',    coords:[-134.4197, 58.3019] }
+];
+
+const canvas = document.getElementById('globe');
+const ctx = canvas.getContext('2d');
+const tip = document.getElementById('tip');
+const tipCity = document.getElementById('tip-city');
+const tipCountry = document.getElementById('tip-country');
+const listEl = document.getElementById('list');
+document.getElementById('count').textContent = CITIES.length;
+document.getElementById('countries').textContent =
+  new Set(CITIES.map(c => c.country.replace('Alaska, USA', 'United States'))).size;
+
+// list
+const rows = CITIES.map((c, i) => {
+  const el = document.createElement('div');
+  el.className = 'row';
+  el.innerHTML = '<span>' + c.city + '</span><span class="mono" style="font-size:10.5px;letter-spacing:.06em;color:var(--m3)">' + c.country + '</span>';
+  el.addEventListener('mouseenter', () => { active = i; spinning = false; flyTo(c.coords); });
+  el.addEventListener('mouseleave', () => { active = -1; spinning = true; hideTip(); });
+  listEl.appendChild(el);
+  return el;
+});
+
+let land = null, borders = null;
+const graticule = d3.geoGraticule10();
+const projection = d3.geoOrthographic().rotate([-20, -14]);
+const path = d3.geoPath(projection, ctx);
+
+let W = 0, H = 0, dpr = 1;
+let active = -1, spinning = true, dragging = false, target = null;
+
+function css(v) { return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }
+
+function resize() {
+  const r = canvas.parentElement.getBoundingClientRect();
+  W = r.width; H = r.height; dpr = Math.min(2, window.devicePixelRatio || 1);
+  canvas.width = W * dpr; canvas.height = H * dpr;
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  const s = Math.min(W, H) / 2 - 8;
+  projection.scale(s).translate([W / 2, H / 2]);
+  draw();
+}
+
+function draw() {
+  const c = {
+    land: css('--land'), line: css('--land-line'), grat: css('--grat'),
+    sphere: css('--sphere'), bg: css('--bg'), accent: css('--accent'), ink: css('--ink')
+  };
+  ctx.clearRect(0, 0, W, H);
+
+  ctx.beginPath(); path({ type: 'Sphere' });
+  ctx.fillStyle = c.bg; ctx.fill();
+  ctx.lineWidth = 1; ctx.strokeStyle = c.sphere; ctx.stroke();
+
+  ctx.beginPath(); path(graticule);
+  ctx.lineWidth = 0.6; ctx.strokeStyle = c.grat; ctx.stroke();
+
+  if (land) {
+    ctx.beginPath(); path(land);
+    ctx.fillStyle = c.land; ctx.fill();
+    ctx.lineWidth = 0.7; ctx.strokeStyle = c.line; ctx.stroke();
+  }
+
+  const center = [-projection.rotate()[0], -projection.rotate()[1]];
+  CITIES.forEach((city, i) => {
+    if (d3.geoDistance(city.coords, center) > Math.PI / 2 - 0.02) return;
+    const p = projection(city.coords);
+    const on = i === active;
+    if (on) {
+      ctx.beginPath(); ctx.arc(p[0], p[1], 11, 0, 2 * Math.PI);
+      ctx.fillStyle = c.accent; ctx.globalAlpha = .18; ctx.fill(); ctx.globalAlpha = 1;
+    }
+    ctx.beginPath(); ctx.arc(p[0], p[1], on ? 5 : 3.4, 0, 2 * Math.PI);
+    ctx.fillStyle = on ? c.ink : c.accent; ctx.fill();
+    ctx.lineWidth = 1.6; ctx.strokeStyle = c.bg; ctx.stroke();
+  });
+
+  // tooltip follows the active dot
+  if (active >= 0) {
+    const city = CITIES[active];
+    if (d3.geoDistance(city.coords, center) <= Math.PI / 2 - 0.02) {
+      const p = projection(city.coords);
+      tip.style.left = p[0] + 'px';
+      tip.style.top = p[1] + 'px';
+      tipCity.textContent = city.city;
+      tipCountry.textContent = city.country;
+      tip.style.opacity = 1;
+    } else { tip.style.opacity = 0; }
+  }
+  rows.forEach((el, i) => el.classList.toggle('on', i === active));
+}
+
+function hideTip() { tip.style.opacity = 0; }
+
+function flyTo(coords) { target = [-coords[0], -coords[1]]; }
+
+// pointer: drag to rotate, hover to inspect
+let last = null;
+canvas.addEventListener('pointerdown', e => {
+  dragging = true; last = [e.offsetX, e.offsetY];
+  canvas.classList.add('dragging'); canvas.setPointerCapture(e.pointerId);
+});
+canvas.addEventListener('pointerup', e => {
+  dragging = false; canvas.classList.remove('dragging');
+  try { canvas.releasePointerCapture(e.pointerId); } catch (_) {}
+});
+canvas.addEventListener('pointermove', e => {
+  if (dragging) {
+    const r = projection.rotate();
+    const k = 90 / projection.scale();
+    projection.rotate([
+      r[0] + (e.offsetX - last[0]) * k,
+      Math.max(-80, Math.min(80, r[1] - (e.offsetY - last[1]) * k))
+    ]);
+    last = [e.offsetX, e.offsetY];
+    target = null;
+    draw();
+    return;
+  }
+  const center = [-projection.rotate()[0], -projection.rotate()[1]];
+  let hit = -1, best = 15;
+  CITIES.forEach((city, i) => {
+    if (d3.geoDistance(city.coords, center) > Math.PI / 2 - 0.02) return;
+    const p = projection(city.coords);
+    const d = Math.hypot(p[0] - e.offsetX, p[1] - e.offsetY);
+    if (d < best) { best = d; hit = i; }
+  });
+  if (hit !== active) {
+    active = hit;
+    if (hit === -1) hideTip();
+    spinning = hit === -1;
+    draw();
+  }
+});
+canvas.addEventListener('pointerleave', () => { active = -1; spinning = true; hideTip(); draw(); });
+
+function tick() {
+  if (target) {
+    const r = projection.rotate();
+    const dx = ((target[0] - r[0] + 540) % 360) - 180;
+    const dy = target[1] - r[1];
+    if (Math.abs(dx) < .3 && Math.abs(dy) < .3) { target = null; }
+    else { projection.rotate([r[0] + dx * .12, r[1] + dy * .12]); }
+    draw();
+  } else if (spinning && !dragging) {
+    const r = projection.rotate();
+    projection.rotate([r[0] + 0.13, r[1]]);
+    draw();
+  }
+  requestAnimationFrame(tick);
+}
+
+d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-110m.json').then(topo => {
+  land = topojson.feature(topo, topo.objects.countries);
+  draw();
+});
+
+new ResizeObserver(resize).observe(canvas.parentElement);
+resize();
+tick();
+</script>
+<script src="./theme.js"></script>
+</body>
+</html>
