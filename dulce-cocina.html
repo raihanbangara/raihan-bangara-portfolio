@@ -14,22 +14,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#eaeee8; --ink:#12130f; --panel:#12130f; --on-panel:#eaeee8; --card:#ffffff;
-    --border:#d3dacf; --border-dark:#3b423c; --accent:#2f5d45; --accent-soft:#b4cdbf;
-    --m1:#444b45; --m2:#565f57; --m3:#787f79; --m4:#9fa89f;
-    --cream-bg:#f7ece3; --cream-border:#e3d6c9; --cream-ink:#4a2c1c; --cream-mid:#7b5a45; --cream-label:#a6836b;
-  }
-  :root[data-theme="dark"]{
-    --bg:#12170f; --ink:#e8ece4; --panel:#1a2016; --on-panel:#e8ece4; --card:#1a2016;
-    --border:#2b332a; --border-dark:#2b332a; --accent:#8fbf9e; --accent-soft:#25402c;
-    --m1:#a9b3a5; --m2:#98a294; --m3:#87917f; --m4:#6f7a6b;
+    --bg:#0b0d0a; --ink:#f2f4ee; --panel:#14160d; --on-panel:#f2f4ee; --card:#15170f;
+    --border:#23261d; --border-dark:#363a2c; --accent:#d7f24e; --accent-soft:#b3c66a;
+    --m1:#8f9a86; --m2:#7c8672; --m3:#697263; --m4:#565e52;
     --cream-bg:#1d1712; --cream-border:#33291f; --cream-ink:#f0e2d4; --cream-mid:#c9ae98; --cream-label:#c9a184;
   }
   body { margin:0; background:var(--bg); }
   a { color:var(--accent); text-decoration:none; }
   a:hover { color:var(--ink); }
 </style>
-<script src="./theme.js"></script>
 </helmet>
 <div style="background:var(--bg);color:var(--ink);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh">
   <div style="max-width:1180px;margin:0 auto;padding:0 44px">
@@ -78,19 +71,19 @@
       <div style="display:flex;flex-direction:column;gap:2px">
 
         <div style="background:var(--card);border:1px solid var(--border);padding:28px 30px">
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#8b897e;margin-bottom:12px">Problem 01 · Data loss</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--m2);margin-bottom:12px">Problem 01 · Data loss</div>
           <div style="font-family:'Instrument Serif',Georgia,serif;font-size:26px;line-height:1.2;margin-bottom:12px">Orders disappeared on every redeploy</div>
           <p style="font-size:16px;color:var(--m1);margin:0;max-width:64ch;text-wrap:pretty">Order records lived in memory, so every Railway redeployment wiped them. I diagnosed the cause, then migrated storage to PostgreSQL so orders persist across deploys and restarts.</p>
         </div>
 
         <div style="background:var(--card);border:1px solid var(--border);padding:28px 30px">
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#8b897e;margin-bottom:12px">Problem 02 · Email delivery</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--m2);margin-bottom:12px">Problem 02 · Email delivery</div>
           <div style="font-family:'Instrument Serif',Georgia,serif;font-size:26px;line-height:1.2;margin-bottom:12px">Confirmation emails silently failed</div>
           <p style="font-size:16px;color:var(--m1);margin:0;max-width:64ch;text-wrap:pretty">Railway blocks outbound Gmail SMTP, which killed order confirmations with no obvious error. I re-architected the email flow around Resend's API and kept the whole thing inside free-tier sending limits.</p>
         </div>
 
         <div style="background:var(--card);border:1px solid var(--border);padding:28px 30px">
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#8b897e;margin-bottom:12px">Problem 03 · Payments</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--m2);margin-bottom:12px">Problem 03 · Payments</div>
           <div style="font-family:'Instrument Serif',Georgia,serif;font-size:26px;line-height:1.2;margin-bottom:12px">Checkout had to work end to end</div>
           <p style="font-size:16px;color:var(--m1);margin:0;max-width:64ch;text-wrap:pretty">I built UPI checkout from the frontend form through to backend order confirmation, so a customer can place and pay for an order without a single message being sent by hand.</p>
         </div>
@@ -101,14 +94,14 @@
       <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:30px">Outcome</div>
       <p style="font-family:'Instrument Serif',Georgia,serif;font-size:clamp(30px,3.6vw,46px);line-height:1.2;margin:0 0 40px;max-width:22ch">A fully deployed, functional production app, built alone.</p>
       <div style="display:flex;flex-wrap:wrap;gap:8px">
-        <span style="border:1px solid #cfccc3;font-size:13px;padding:6px 14px">HTML / CSS / JS</span>
-        <span style="border:1px solid #cfccc3;font-size:13px;padding:6px 14px">Node.js</span>
-        <span style="border:1px solid #cfccc3;font-size:13px;padding:6px 14px">Express</span>
-        <span style="border:1px solid #cfccc3;font-size:13px;padding:6px 14px">PostgreSQL</span>
-        <span style="border:1px solid #cfccc3;font-size:13px;padding:6px 14px">Vercel</span>
-        <span style="border:1px solid #cfccc3;font-size:13px;padding:6px 14px">Railway</span>
-        <span style="border:1px solid #cfccc3;font-size:13px;padding:6px 14px">Resend</span>
-        <span style="border:1px solid #cfccc3;font-size:13px;padding:6px 14px">UPI</span>
+        <span style="border:1px solid var(--border);font-size:13px;padding:6px 14px">HTML / CSS / JS</span>
+        <span style="border:1px solid var(--border);font-size:13px;padding:6px 14px">Node.js</span>
+        <span style="border:1px solid var(--border);font-size:13px;padding:6px 14px">Express</span>
+        <span style="border:1px solid var(--border);font-size:13px;padding:6px 14px">PostgreSQL</span>
+        <span style="border:1px solid var(--border);font-size:13px;padding:6px 14px">Vercel</span>
+        <span style="border:1px solid var(--border);font-size:13px;padding:6px 14px">Railway</span>
+        <span style="border:1px solid var(--border);font-size:13px;padding:6px 14px">Resend</span>
+        <span style="border:1px solid var(--border);font-size:13px;padding:6px 14px">UPI</span>
       </div>
     </section>
 

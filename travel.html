@@ -11,16 +11,10 @@
 <script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js" integrity="sha384-Ukv1p/xTma6P4/2bY5KzWBw+ydSpXmhCMtyciIQVDJ1RmOxtCYNMF1uXT9T63H67" crossorigin="anonymous"></script>
 <style>
   :root{
-    --bg:#eaeee8; --ink:#12130f; --panel:#12130f; --on-panel:#eaeee8; --card:#ffffff;
-    --border:#d3dacf; --border-dark:#3b423c; --accent:#2f5d45; --accent-soft:#b4cdbf;
-    --m1:#444b45; --m2:#565f57; --m3:#787f79; --m4:#9fa89f;
-    --land:#dbe2d6; --land-line:#c3ccbe; --grat:#dde3d8; --sphere:#c3ccbe;
-  }
-  :root[data-theme="dark"]{
-    --bg:#12170f; --ink:#e8ece4; --panel:#1a2016; --on-panel:#e8ece4; --card:#1a2016;
-    --border:#2b332a; --border-dark:#2b332a; --accent:#8fbf9e; --accent-soft:#25402c;
-    --m1:#a9b3a5; --m2:#98a294; --m3:#87917f; --m4:#6f7a6b;
-    --land:#232c20; --land-line:#334031; --grat:#1e261c; --sphere:#33402f;
+    --bg:#0b0d0a; --ink:#f2f4ee; --panel:#14160d; --on-panel:#f2f4ee; --card:#15170f;
+    --border:#23261d; --border-dark:#363a2c; --accent:#d7f24e; --accent-soft:#b3c66a;
+    --m1:#8f9a86; --m2:#7c8672; --m3:#697263; --m4:#565e52;
+    --land:#1b1e15; --land-line:#343a29; --grat:#14160f; --sphere:#343a29;
   }
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--ink);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;line-height:1.55}
@@ -264,6 +258,5 @@ new ResizeObserver(resize).observe(canvas.parentElement);
 resize();
 tick();
 </script>
-<script src="./theme.js"></script>
 </body>
 </html>

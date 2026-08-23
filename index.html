@@ -14,15 +14,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#eaeee8; --ink:#12130f; --panel:#12130f; --on-panel:#eaeee8; --card:#ffffff;
-    --border:#d3dacf; --border-dark:#3b423c; --accent:#2f5d45; --accent-soft:#b4cdbf;
-    --m1:#444b45; --m2:#565f57; --m3:#787f79; --m4:#9fa89f;
-    --cream-bg:#f7ece3; --cream-border:#e3d6c9; --cream-ink:#4a2c1c; --cream-mid:#7b5a45; --cream-label:#a6836b;
-  }
-  :root[data-theme="dark"]{
-    --bg:#12170f; --ink:#e8ece4; --panel:#1a2016; --on-panel:#e8ece4; --card:#1a2016;
-    --border:#2b332a; --border-dark:#2b332a; --accent:#8fbf9e; --accent-soft:#25402c;
-    --m1:#a9b3a5; --m2:#98a294; --m3:#87917f; --m4:#6f7a6b;
+    --bg:#0b0d0a; --ink:#f2f4ee; --panel:#14160d; --on-panel:#f2f4ee; --card:#15170f;
+    --border:#23261d; --border-dark:#363a2c; --accent:#d7f24e; --accent-soft:#b3c66a;
+    --m1:#8f9a86; --m2:#7c8672; --m3:#697263; --m4:#565e52;
     --cream-bg:#1d1712; --cream-border:#33291f; --cream-ink:#f0e2d4; --cream-mid:#c9ae98; --cream-label:#c9a184;
   }
   body { margin:0; background:var(--bg); }
@@ -34,7 +28,6 @@
   .prev-item[open] .prev-arrow { transform:rotate(90deg) }
   .prev-body li { font-size:14px; color:var(--m1); margin-bottom:6px }
 </style>
-<script src="./theme.js"></script>
 </helmet>
 <div style="background:var(--bg);color:var(--ink);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;line-height:1.55;min-height:100vh">
   <div style="max-width:1180px;margin:0 auto;padding:0 44px">
@@ -65,9 +58,9 @@
         <div style="font-family:'Instrument Serif',Georgia,serif;font-size:clamp(38px,4vw,56px);line-height:1">{{ m1 }}</div>
         <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--m4)">Social following, 60 days</div>
       </div>
-      <div style="background:var(--accent);color:var(--on-panel);padding:28px 24px 24px;min-height:158px;display:flex;flex-direction:column;justify-content:space-between">
-        <div style="font-family:'Instrument Serif',Georgia,serif;font-size:clamp(38px,4vw,56px);line-height:1">{{ m2 }}</div>
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-soft)">Engagement lift</div>
+      <div style="background:var(--panel);color:var(--on-panel);border:1px solid var(--accent);padding:28px 24px 24px;min-height:158px;display:flex;flex-direction:column;justify-content:space-between">
+        <div style="font-family:'Instrument Serif',Georgia,serif;font-size:clamp(38px,4vw,56px);line-height:1;color:var(--accent)">{{ m2 }}</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--m4)">Engagement lift</div>
       </div>
       <div style="border:1px solid var(--border);padding:28px 24px 24px;min-height:158px;display:flex;flex-direction:column;justify-content:space-between">
         <div style="font-family:'Instrument Serif',Georgia,serif;font-size:clamp(38px,4vw,56px);line-height:1">{{ m3 }}</div>
@@ -176,15 +169,15 @@
       </div>
       <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--m2);margin-bottom:16px">Tools</div>
       <div style="display:flex;flex-wrap:wrap;gap:8px">
-        <span style="border:1px solid #cfccc3;font-size:13px;padding:6px 13px">Excel / Sheets</span>
-        <span style="border:1px solid #cfccc3;font-size:13px;padding:6px 13px">SQL</span>
-        <span style="border:1px solid #cfccc3;font-size:13px;padding:6px 13px">Tableau</span>
-        <span style="border:1px solid #cfccc3;font-size:13px;padding:6px 13px">HubSpot / Salesforce</span>
-        <span style="border:1px solid #cfccc3;font-size:13px;padding:6px 13px">Klaviyo</span>
-        <span style="border:1px solid #cfccc3;font-size:13px;padding:6px 13px">Google Ads</span>
-        <span style="border:1px solid #cfccc3;font-size:13px;padding:6px 13px">Shopify</span>
-        <span style="border:1px solid #cfccc3;font-size:13px;padding:6px 13px">HTML / CSS / JS</span>
-        <span style="border:1px solid #cfccc3;font-size:13px;padding:6px 13px">Node.js / Express</span>
+        <span style="border:1px solid var(--border);font-size:13px;padding:6px 13px">Excel / Sheets</span>
+        <span style="border:1px solid var(--border);font-size:13px;padding:6px 13px">SQL</span>
+        <span style="border:1px solid var(--border);font-size:13px;padding:6px 13px">Tableau</span>
+        <span style="border:1px solid var(--border);font-size:13px;padding:6px 13px">HubSpot / Salesforce</span>
+        <span style="border:1px solid var(--border);font-size:13px;padding:6px 13px">Klaviyo</span>
+        <span style="border:1px solid var(--border);font-size:13px;padding:6px 13px">Google Ads</span>
+        <span style="border:1px solid var(--border);font-size:13px;padding:6px 13px">Shopify</span>
+        <span style="border:1px solid var(--border);font-size:13px;padding:6px 13px">HTML / CSS / JS</span>
+        <span style="border:1px solid var(--border);font-size:13px;padding:6px 13px">Node.js / Express</span>
       </div>
     </section>
 

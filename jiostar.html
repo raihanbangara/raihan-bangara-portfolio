@@ -14,22 +14,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#eaeee8; --ink:#12130f; --panel:#12130f; --on-panel:#eaeee8; --card:#ffffff;
-    --border:#d3dacf; --border-dark:#3b423c; --accent:#2f5d45; --accent-soft:#b4cdbf;
-    --m1:#444b45; --m2:#565f57; --m3:#787f79; --m4:#9fa89f;
-    --cream-bg:#f7ece3; --cream-border:#e3d6c9; --cream-ink:#4a2c1c; --cream-mid:#7b5a45; --cream-label:#a6836b;
-  }
-  :root[data-theme="dark"]{
-    --bg:#12170f; --ink:#e8ece4; --panel:#1a2016; --on-panel:#e8ece4; --card:#1a2016;
-    --border:#2b332a; --border-dark:#2b332a; --accent:#8fbf9e; --accent-soft:#25402c;
-    --m1:#a9b3a5; --m2:#98a294; --m3:#87917f; --m4:#6f7a6b;
+    --bg:#0b0d0a; --ink:#f2f4ee; --panel:#14160d; --on-panel:#f2f4ee; --card:#15170f;
+    --border:#23261d; --border-dark:#363a2c; --accent:#d7f24e; --accent-soft:#b3c66a;
+    --m1:#8f9a86; --m2:#7c8672; --m3:#697263; --m4:#565e52;
     --cream-bg:#1d1712; --cream-border:#33291f; --cream-ink:#f0e2d4; --cream-mid:#c9ae98; --cream-label:#c9a184;
   }
   body { margin:0; background:var(--bg); }
   a { color:var(--accent); text-decoration:none; }
   a:hover { color:var(--ink); }
 </style>
-<script src="./theme.js"></script>
 </helmet>
 <div style="background:var(--bg);color:var(--ink);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh">
   <div style="max-width:1180px;margin:0 auto;padding:0 44px">
@@ -80,7 +73,7 @@
           </sc-if>
         </div>
       </div>
-      <figcaption style="display:flex;justify-content:space-between;align-items:baseline;gap:24px;margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#8b897e">
+      <figcaption style="display:flex;justify-content:space-between;align-items:baseline;gap:24px;margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--m2)">
         <span>The teaser — season launch spot</span>
         <a href="https://youtu.be/zusgg_MfSHs" target="_blank" rel="noreferrer" style="color:{{ accent }}">Watch on YouTube →</a>
       </figcaption>
@@ -92,12 +85,12 @@
         <p style="font-family:'Instrument Serif',Georgia,serif;font-size:29px;line-height:1.3;margin:0 0 20px;text-wrap:pretty">Seven marketing briefs and campaign decks across six live sports properties, written for an audience that watches on national television.</p>
         <p style="font-size:17px;color:var(--m1);margin:0 0 30px;text-wrap:pretty">I sat in on strategy meetings and turned them into briefs covering audience engagement and seasonal campaign planning for Wimbledon, the US Open, the Premier League, SA20, Pro Kabaddi, and the India versus England test series. Each one had to hold up in front of senior leadership, and several were later shared with external league partners.</p>
         <div style="display:flex;flex-wrap:wrap;gap:8px">
-          <span style="border:1px solid #cfccc3;font-size:13px;padding:6px 14px">Premier League</span>
-          <span style="border:1px solid #cfccc3;font-size:13px;padding:6px 14px">Wimbledon</span>
-          <span style="border:1px solid #cfccc3;font-size:13px;padding:6px 14px">US Open</span>
-          <span style="border:1px solid #cfccc3;font-size:13px;padding:6px 14px">SA20</span>
-          <span style="border:1px solid #cfccc3;font-size:13px;padding:6px 14px">Pro Kabaddi</span>
-          <span style="border:1px solid #cfccc3;font-size:13px;padding:6px 14px">India v England</span>
+          <span style="border:1px solid var(--border);font-size:13px;padding:6px 14px">Premier League</span>
+          <span style="border:1px solid var(--border);font-size:13px;padding:6px 14px">Wimbledon</span>
+          <span style="border:1px solid var(--border);font-size:13px;padding:6px 14px">US Open</span>
+          <span style="border:1px solid var(--border);font-size:13px;padding:6px 14px">SA20</span>
+          <span style="border:1px solid var(--border);font-size:13px;padding:6px 14px">Pro Kabaddi</span>
+          <span style="border:1px solid var(--border);font-size:13px;padding:6px 14px">India v England</span>
         </div>
       </div>
     </section>
@@ -105,8 +98,8 @@
     <section style="border-top:1px solid var(--border);padding:60px 0 76px;display:grid;grid-template-columns:220px minmax(0,1fr);gap:56px">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)">The teaser</div>
       <div>
-        <div style="background:var(--accent);color:var(--on-panel);padding:44px 40px;margin-bottom:28px">
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-soft);margin-bottom:18px">Selected concept</div>
+        <div style="background:var(--panel);color:var(--on-panel);border:1px solid var(--accent);padding:44px 40px;margin-bottom:28px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:18px">Selected concept</div>
           <p style="font-family:'Instrument Serif',Georgia,serif;font-size:clamp(28px,3.4vw,44px);line-height:1.18;margin:0;max-width:24ch">My concept was chosen for the Premier League teaser ad and aired to hundreds of millions of viewers on cable TV across the country.</p>
         </div>
         <p style="font-size:17px;color:var(--m1);margin:0;max-width:66ch;text-wrap:pretty">I pitched multiple teaser directions for the campaign. One was selected from my submission, produced, and aired on the Star Sports network during marquee programming. I also presented strategic recommendations to senior leadership and external league stakeholders, which shaped how the final campaign ran.</p>
