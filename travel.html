@@ -11,10 +11,10 @@
 <script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js" integrity="sha384-Ukv1p/xTma6P4/2bY5KzWBw+ydSpXmhCMtyciIQVDJ1RmOxtCYNMF1uXT9T63H67" crossorigin="anonymous"></script>
 <style>
   :root{
-    --bg:#0b0d0a; --ink:#f2f4ee; --panel:#14160d; --on-panel:#f2f4ee; --card:#15170f;
-    --border:#23261d; --border-dark:#363a2c; --accent:#d7f24e; --accent-soft:#b3c66a;
-    --m1:#8f9a86; --m2:#7c8672; --m3:#697263; --m4:#565e52;
-    --land:#1b1e15; --land-line:#343a29; --grat:#14160f; --sphere:#343a29;
+    --bg:#0b0d0a; --ink:#f2f4ee; --panel:#101310; --on-panel:#f2f4ee; --card:#131711;
+    --border:#22271f; --border-dark:#22271f; --accent:#d7f24e; --accent-soft:#2c3318;
+    --m1:#9aa393; --m2:#8f9a86; --m3:#7c8674; --m4:#69725f; --on-accent:#0b0d0a;
+    --land:#171a13; --land-line:#343a29; --grat:#12140f; --sphere:#343a29;
   }
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--ink);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;line-height:1.55}
@@ -54,12 +54,12 @@
       <canvas id="globe"></canvas>
       <div id="tip">
         <div class="mono" id="tip-city" style="font-size:13px;letter-spacing:.06em;color:var(--on-panel)"></div>
-        <div class="mono" id="tip-country" style="font-size:10.5px;color:var(--m4);margin-top:4px"></div>
+        <div class="mono" id="tip-country" style="font-size:10.5px;color:var(--m2);margin-top:4px"></div>
       </div>
     </div>
     <div id="side">
       <div class="mono" style="font-size:12px;letter-spacing:.16em;color:var(--m2);margin-bottom:8px"><span id="count">0</span> cities · <span id="countries">0</span> countries</div>
-      <p class="mono" style="font-size:10.5px;letter-spacing:.1em;color:var(--m4);margin-top:22px;margin-bottom:64px;line-height:1.8">Geometry: Natural Earth<br>via world-atlas + d3-geo</p>
+      <p class="mono" style="font-size:10.5px;letter-spacing:.1em;color:var(--m2);margin-top:22px;margin-bottom:64px;line-height:1.8">Geometry: Natural Earth<br>via world-atlas + d3-geo</p>
     </div>
   </section>
 
