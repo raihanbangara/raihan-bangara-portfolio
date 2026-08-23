@@ -75,18 +75,23 @@
 // ——— Edit this list: name, country, [longitude, latitude], optional note ———
 const CITIES = [
   { city:'Mumbai',        country:'India',          coords:[72.8777, 19.0760] },
+  { city:'Goa',           country:'India',          coords:[74.1240, 15.2993] },
   { city:'Pune',          country:'India',          coords:[73.8567, 18.5204] },
   { city:'Aurangabad',    country:'India',          coords:[75.3433, 19.8762] },
   { city:'Bhopal',        country:'India',          coords:[77.4126, 23.2599] },
   { city:'New Delhi',     country:'India',          coords:[77.2090, 28.6139] },
+  { city:'Jaipur',        country:'India',          coords:[75.7873, 26.9124] },
   { city:'Chandigarh',    country:'India',          coords:[76.7794, 30.7333] },
   { city:'Shimla',        country:'India',          coords:[77.1734, 31.1048] },
   { city:'Kashmir',       country:'India',          coords:[74.7973, 34.0837] },
   { city:'Kolkata',       country:'India',          coords:[88.3639, 22.5726] },
   { city:'Hyderabad',     country:'India',          coords:[78.4867, 17.3850] },
   { city:'Bengaluru',     country:'India',          coords:[77.5946, 12.9716] },
+  { city:'Ooty',          country:'India',          coords:[76.6950, 11.4102] },
+  { city:'Coimbatore',    country:'India',          coords:[76.9558, 11.0168] },
   { city:'Colombo',       country:'Sri Lanka',      coords:[79.8612, 6.9271] },
   { city:'Tokyo',         country:'Japan',          coords:[139.6917, 35.6895] },
+  { city:'Kagoshima',     country:'Japan',          coords:[130.5571, 31.5966] },
   { city:'Akita',         country:'Japan',          coords:[140.1063, 39.7186] },
   { city:'Aomori',        country:'Japan',          coords:[140.7400, 40.8244] },
   { city:'Busan',         country:'South Korea',    coords:[129.0756, 35.1796] },
@@ -97,6 +102,7 @@ const CITIES = [
   { city:'London',        country:'United Kingdom', coords:[-0.1276, 51.5072] },
   { city:'Paris',         country:'France',         coords:[2.3522, 48.8566] },
   { city:'Nice',          country:'France',         coords:[7.2620, 43.7102] },
+  { city:'Monaco',        country:'Monaco',         coords:[7.4246, 43.7384] },
   { city:'Geneva',        country:'Switzerland',    coords:[6.1432, 46.2044] },
   { city:'Salzburg',      country:'Austria',        coords:[13.0550, 47.8095] },
   { city:'Milan',         country:'Italy',          coords:[9.1900, 45.4642] },
@@ -108,8 +114,10 @@ const CITIES = [
   { city:'New York',      country:'United States',  coords:[-74.0060, 40.7128] },
   { city:'Miami',         country:'United States',  coords:[-80.1918, 25.7617] },
   { city:'Mexico City',   country:'Mexico',         coords:[-99.1332, 19.4326] },
+  { city:'Cancun',        country:'Mexico',         coords:[-86.8515, 21.1619] },
   { city:'Phoenix',       country:'United States',  coords:[-112.0740, 33.4484] },
   { city:'Las Vegas',     country:'United States',  coords:[-115.1398, 36.1699] },
+  { city:'Oahu',          country:'Hawaii, USA',    coords:[-157.9583, 21.4667] },
   { city:'Los Angeles',   country:'United States',  coords:[-118.2437, 34.0522] },
   { city:'San Francisco', country:'United States',  coords:[-122.4194, 37.7749] },
   { city:'Seattle',       country:'United States',  coords:[-122.3321, 47.6062] },
@@ -125,7 +133,7 @@ const tipCity = document.getElementById('tip-city');
 const tipCountry = document.getElementById('tip-country');
 document.getElementById('count').textContent = CITIES.length;
 document.getElementById('countries').textContent =
-  new Set(CITIES.map(c => c.country.replace('Alaska, USA', 'United States'))).size;
+  new Set(CITIES.map(c => c.country.replace('Alaska, USA', 'United States').replace('Hawaii, USA', 'United States'))).size;
 
 let land = null, borders = null;
 const graticule = d3.geoGraticule10();
