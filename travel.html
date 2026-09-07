@@ -55,7 +55,7 @@
   <section style="border-top:1px solid var(--border);padding:76px 0 44px">
     <div class="mono" style="font-size:12px;letter-spacing:.16em;color:var(--accent);margin-bottom:30px">03 — Where I've been</div>
     <h1 style="font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(42px,6vw,84px);line-height:1.02;letter-spacing:-.02em;margin:0 0 28px;max-width:18ch">Every city that taught me something.</h1>
-    <p style="font-size:18px;color:var(--m1);margin:0;max-width:58ch;text-wrap:pretty">Drag to spin the globe. Hover a dot to reveal the city and country.</p>
+    <p style="font-size:18px;color:var(--m1);margin:0;max-width:58ch;text-wrap:pretty">Drag to spin the globe, pinch to zoom. Hover (or tap) a dot to reveal the city and country.</p>
   </section>
 
   <section class="split" style="display:grid;grid-template-columns:minmax(0,1fr) 356px;gap:56px;align-items:start;padding-bottom:96px">
@@ -151,16 +151,23 @@ const path = d3.geoPath(projection, ctx);
 
 let W = 0, H = 0, dpr = 1;
 let active = -1, spinning = true, dragging = false, target = null;
+let baseScale = 0, zoom = 1;
+const ZOOM_MIN = 0.6, ZOOM_MAX = 2.5;
 
 function css(v) { return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }
+
+function applyZoom(z) {
+  zoom = Math.max(ZOOM_MIN, Math.min(ZOOM_MAX, z));
+  projection.scale(baseScale * zoom);
+}
 
 function resize() {
   const r = canvas.parentElement.getBoundingClientRect();
   W = r.width; H = r.height; dpr = Math.min(2, window.devicePixelRatio || 1);
   canvas.width = W * dpr; canvas.height = H * dpr;
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  const s = Math.min(W, H) / 2 - 8;
-  projection.scale(s).translate([W / 2, H / 2]);
+  baseScale = Math.min(W, H) / 2 - 8;
+  projection.scale(baseScale * zoom).translate([W / 2, H / 2]);
   draw();
 }
 
@@ -214,18 +221,107 @@ function draw() {
 
 function hideTip() { tip.style.opacity = 0; }
 
-// pointer: drag to rotate, hover to inspect
+function hitTest(x, y, threshold) {
+  const center = [-projection.rotate()[0], -projection.rotate()[1]];
+  let hit = -1, best = threshold;
+  CITIES.forEach((city, i) => {
+    if (d3.geoDistance(city.coords, center) > Math.PI / 2 - 0.02) return;
+    const p = projection(city.coords);
+    const d = Math.hypot(p[0] - x, p[1] - y);
+    if (d < best) { best = d; hit = i; }
+  });
+  return hit;
+}
+
+function selectPoint(hit) {
+  if (hit === active) {
+    active = -1; hideTip(); spinning = true;
+  } else if (hit !== -1) {
+    active = hit; spinning = false;
+  } else {
+    active = -1; hideTip(); spinning = true;
+  }
+  draw();
+}
+
+// pointer: one finger drags to rotate, two fingers pinch to zoom,
+// mouse hover inspects, a touch tap (no movement) selects a point.
 let last = null;
+const pointers = new Map();
+let pinchDist = null, downPos = null, downPointerType = null, dragMoved = false;
+
+function pinchDistance() {
+  const pts = [...pointers.values()];
+  return Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y);
+}
+
 canvas.addEventListener('pointerdown', e => {
-  dragging = true; last = [e.offsetX, e.offsetY];
-  canvas.classList.add('dragging'); canvas.setPointerCapture(e.pointerId);
+  try { canvas.setPointerCapture(e.pointerId); } catch (_) {}
+  pointers.set(e.pointerId, { x: e.offsetX, y: e.offsetY });
+
+  if (pointers.size >= 2) {
+    e.preventDefault();
+    dragging = false;
+    canvas.classList.remove('dragging');
+    pinchDist = pinchDistance();
+  } else if (pointers.size === 1) {
+    dragging = true;
+    last = [e.offsetX, e.offsetY];
+    downPos = last;
+    downPointerType = e.pointerType;
+    dragMoved = false;
+    canvas.classList.add('dragging');
+  }
 });
-canvas.addEventListener('pointerup', e => {
-  dragging = false; canvas.classList.remove('dragging');
+
+function endPointer(e) {
+  pointers.delete(e.pointerId);
   try { canvas.releasePointerCapture(e.pointerId); } catch (_) {}
-});
+
+  if (pointers.size === 0) {
+    if (dragging && downPointerType === 'touch' && !dragMoved) {
+      selectPoint(hitTest(downPos[0], downPos[1], 20));
+    }
+    dragging = false;
+    canvas.classList.remove('dragging');
+    pinchDist = null;
+  } else if (pointers.size === 1) {
+    // dropped from a pinch back to one finger: resume single-finger rotate
+    const [remaining] = [...pointers.values()];
+    dragging = true;
+    last = [remaining.x, remaining.y];
+    dragMoved = true; // this isn't a tap, it's a mid-gesture transition
+    canvas.classList.add('dragging');
+    pinchDist = null;
+  }
+}
+canvas.addEventListener('pointerup', endPointer);
+canvas.addEventListener('pointercancel', endPointer);
+
+// iOS Safari's system pinch-zoom gesture recognizer can start before/despite
+// touch-action:none and pointer-event preventDefault; blocking it also at the
+// touch-event level is the only reliable way to stop it on the canvas.
+function blockMultiTouch(e) {
+  if (e.touches && e.touches.length > 1) e.preventDefault();
+}
+canvas.addEventListener('touchstart', blockMultiTouch, { passive: false });
+canvas.addEventListener('touchmove', blockMultiTouch, { passive: false });
+
 canvas.addEventListener('pointermove', e => {
+  if (pointers.has(e.pointerId)) pointers.set(e.pointerId, { x: e.offsetX, y: e.offsetY });
+
+  if (pointers.size >= 2) {
+    e.preventDefault();
+    const dist = pinchDistance();
+    if (pinchDist) applyZoom(zoom * (dist / pinchDist));
+    pinchDist = dist;
+    target = null;
+    draw();
+    return;
+  }
+
   if (dragging) {
+    if (Math.hypot(e.offsetX - downPos[0], e.offsetY - downPos[1]) > 6) dragMoved = true;
     const r = projection.rotate();
     const k = 90 / projection.scale();
     projection.rotate([
@@ -237,14 +333,8 @@ canvas.addEventListener('pointermove', e => {
     draw();
     return;
   }
-  const center = [-projection.rotate()[0], -projection.rotate()[1]];
-  let hit = -1, best = 15;
-  CITIES.forEach((city, i) => {
-    if (d3.geoDistance(city.coords, center) > Math.PI / 2 - 0.02) return;
-    const p = projection(city.coords);
-    const d = Math.hypot(p[0] - e.offsetX, p[1] - e.offsetY);
-    if (d < best) { best = d; hit = i; }
-  });
+
+  const hit = hitTest(e.offsetX, e.offsetY, 15);
   if (hit !== active) {
     active = hit;
     if (hit === -1) hideTip();
@@ -252,7 +342,10 @@ canvas.addEventListener('pointermove', e => {
     draw();
   }
 });
-canvas.addEventListener('pointerleave', () => { active = -1; spinning = true; hideTip(); draw(); });
+canvas.addEventListener('pointerleave', e => {
+  if (e.pointerType === 'touch') return; // touch fires leave right after lift; tap handling owns this
+  active = -1; spinning = true; hideTip(); draw();
+});
 
 function tick() {
   if (target) {
