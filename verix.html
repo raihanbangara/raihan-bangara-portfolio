@@ -22,20 +22,40 @@
   body { margin:0; background:var(--bg); }
   a { color:var(--accent); text-decoration:none; }
   a:hover { color:var(--ink); }
+
+  @media (max-width:767px){
+    .pg-wrap{ padding:0 20px !important; }
+    .site-footer{ margin-left:-20px !important; margin-right:-20px !important; padding-left:20px !important; padding-right:20px !important; }
+    .site-header{ flex-wrap:wrap; row-gap:10px; }
+    .nav-links{ gap:4px !important; }
+    .site-header a{ padding:12px 8px !important; display:inline-flex; align-items:center; min-height:44px; box-sizing:border-box; }
+    .hero-grid{ grid-template-columns:1fr !important; gap:28px !important; }
+    .label-grid{ grid-template-columns:1fr !important; gap:16px !important; }
+    .media-row{ grid-template-columns:1fr !important; gap:24px !important; padding:36px !important; }
+    .media-row img{ width:100% !important; height:auto !important; }
+    .stat-grid{ grid-template-columns:1fr !important; }
+    .footer-inner{ align-items:flex-start !important; }
+    .btn{ box-sizing:border-box; min-height:44px; }
+  }
+  @media (max-width:480px){
+    .pg-wrap{ padding:0 16px !important; }
+    .site-footer{ margin-left:-16px !important; margin-right:-16px !important; padding-left:16px !important; padding-right:16px !important; }
+    .media-row{ padding:24px !important; }
+  }
 </style>
 </helmet>
 <div style="background:var(--bg);color:var(--ink);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh">
-  <div style="max-width:1180px;margin:0 auto;padding:0 44px">
+  <div class="pg-wrap" style="max-width:1180px;margin:0 auto;padding:0 44px">
 
-    <header style="display:flex;justify-content:space-between;align-items:center;padding:26px 0;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--m2)">
+    <header class="site-header" style="display:flex;justify-content:space-between;align-items:center;padding:26px 0;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--m2)">
       <a href="index.html" style="color:var(--ink)">← Raihan Bangara</a>
-      <div style="display:flex;gap:26px">
+      <div class="nav-links" style="display:flex;gap:26px">
         <a href="dulce-cocina.html" style="color:var(--m2)">Dulce Cocina</a>
         <a href="jiostar.html" style="color:var(--m2)">JioStar</a>
       </div>
     </header>
 
-    <section style="border-top:1px solid var(--border);padding:88px 0 60px;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:72px;align-items:end">
+    <section class="hero-grid" style="border-top:1px solid var(--border);padding:88px 0 60px;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:72px;align-items:end">
       <div>
         <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:30px">Case study 03 · Growth · 2024</div>
         <h1 style="font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(44px,6.6vw,88px);line-height:1.02;letter-spacing:-0.02em;margin:0 0 28px">Verix</h1>
@@ -49,7 +69,7 @@
       </div>
     </section>
 
-    <section style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:88px">
+    <section class="stat-grid" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:88px">
       <div style="background:var(--panel);color:var(--on-panel);padding:32px 28px;min-height:190px;display:flex;flex-direction:column;justify-content:space-between">
         <div style="font-family:'Instrument Serif',Georgia,serif;font-size:clamp(38px,4.2vw,58px);line-height:1">{{ f1 }}</div>
         <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--m4)">Followers, from 11,500, in 60 days</div>
@@ -64,7 +84,7 @@
       </div>
     </section>
 
-    <section style="display:grid;grid-template-columns:220px minmax(0,1fr);gap:56px;padding-bottom:76px">
+    <section class="label-grid" style="display:grid;grid-template-columns:220px minmax(0,1fr);gap:56px;padding-bottom:76px">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)">How it worked</div>
       <div style="display:flex;flex-direction:column;gap:2px">
         <div style="background:var(--card);border:1px solid var(--border);padding:28px 30px">
@@ -82,7 +102,7 @@
       </div>
     </section>
 
-    <div style="background:var(--card);border:1px solid var(--border);display:grid;grid-template-columns:340px minmax(0,1fr);align-items:center;gap:56px;padding:56px 60px;margin-bottom:76px">
+    <div class="media-row" style="background:var(--card);border:1px solid var(--border);display:grid;grid-template-columns:340px minmax(0,1fr);align-items:center;gap:56px;padding:56px 60px;margin-bottom:76px">
       <img src="assets/verix-logo.png" alt="Verix" style="width:100%;height:auto;display:block" />
       <div>
         <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--m2);margin-bottom:18px">The client</div>
@@ -91,20 +111,20 @@
       </div>
     </div>
 
-    <section style="border-top:1px solid var(--border);padding:60px 0 88px;display:grid;grid-template-columns:220px minmax(0,1fr);gap:56px">
+    <section class="label-grid" style="border-top:1px solid var(--border);padding:60px 0 88px;display:grid;grid-template-columns:220px minmax(0,1fr);gap:56px">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)">Also</div>
       <p style="font-family:'Instrument Serif',Georgia,serif;font-size:29px;line-height:1.3;margin:0;max-width:30ch;text-wrap:pretty">Placed second company-wide in the Verix innovation challenge, pitching an app engagement strategy against cross-functional teams.</p>
     </section>
 
-    <footer style="background:var(--panel);color:var(--on-panel);margin:0 -44px;padding:72px 44px 52px">
-      <div style="max-width:1092px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap">
+    <footer class="site-footer" style="background:var(--panel);color:var(--on-panel);margin:0 -44px;padding:72px 44px 52px">
+      <div class="footer-inner" style="max-width:1092px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap">
         <div>
           <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--m3);margin-bottom:14px">Next case study</div>
           <a href="dulce-cocina.html" style="font-family:'Instrument Serif',Georgia,serif;font-size:clamp(34px,4.4vw,58px);line-height:1;color:var(--on-panel)" style-hover="color:var(--accent-soft)">Dulce Cocina →</a>
         </div>
         <div style="display:flex;gap:14px">
-          <a href="mailto:raihanbangara@gmail.com" style="padding:16px 28px;background:var(--accent);color:var(--bg);font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="background:var(--bg);color:var(--ink)">Email</a>
-          <a href="https://linkedin.com/in/raihan-bangara" style="padding:16px 28px;border:1px solid var(--border-dark);color:var(--on-panel);font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="border-color:var(--on-panel);color:var(--on-panel)">LinkedIn</a>
+          <a class="btn" href="mailto:raihanbangara@gmail.com" style="padding:16px 28px;background:var(--accent);color:var(--bg);font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="background:var(--bg);color:var(--ink)">Email</a>
+          <a class="btn" href="https://linkedin.com/in/raihan-bangara" style="padding:16px 28px;border:1px solid var(--border-dark);color:var(--on-panel);font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="border-color:var(--on-panel);color:var(--on-panel)">LinkedIn</a>
         </div>
       </div>
     </footer>

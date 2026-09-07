@@ -21,6 +21,7 @@
   a{color:var(--accent);text-decoration:none}
   a:hover{color:var(--ink)}
   .wrap{max-width:1180px;margin:0 auto;padding:0 44px}
+  header a{display:inline-flex;align-items:center;min-height:44px;box-sizing:border-box;padding:10px 0;margin:-10px 0}
   .mono{font-family:'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase}
   #globe{display:block;width:100%;height:100%;cursor:grab;touch-action:none}
   #globe.dragging{cursor:grabbing}
@@ -32,6 +33,14 @@
     .split{grid-template-columns:1fr !important}
     .wrap{padding:0 22px}
     #side{padding-right:0;padding-bottom:76px}
+    .globe-box{min-height:0 !important}
+    header{flex-wrap:wrap;row-gap:10px}
+    footer{margin-left:-22px !important;margin-right:-22px !important;padding-left:22px !important;padding-right:22px !important}
+    footer > div{flex-direction:column;align-items:flex-start !important}
+  }
+  @media (max-width:480px){
+    .wrap{padding:0 16px}
+    footer{margin-left:-16px !important;margin-right:-16px !important;padding-left:16px !important;padding-right:16px !important}
   }
 </style>
 </head>
@@ -50,7 +59,7 @@
   </section>
 
   <section class="split" style="display:grid;grid-template-columns:minmax(0,1fr) 356px;gap:56px;align-items:start;padding-bottom:96px">
-    <div style="position:relative;aspect-ratio:1/1;min-height:360px">
+    <div class="globe-box" style="position:relative;aspect-ratio:1/1;min-height:360px">
       <canvas id="globe"></canvas>
       <div id="tip">
         <div class="mono" id="tip-city" style="font-size:13px;letter-spacing:.06em;color:var(--on-panel)"></div>

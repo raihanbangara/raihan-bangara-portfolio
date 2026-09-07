@@ -27,14 +27,36 @@
   .prev-arrow { display:inline-block; transition:transform .18s ease }
   .prev-item[open] .prev-arrow { transform:rotate(90deg) }
   .prev-body li { font-size:14px; color:var(--m1); margin-bottom:6px }
+
+  @media (max-width:767px){
+    .pg-wrap{ padding:0 20px !important; }
+    .site-footer{ margin-left:-20px !important; margin-right:-20px !important; padding-left:20px !important; padding-right:20px !important; }
+    .site-header{ flex-wrap:wrap; row-gap:10px; }
+    .nav-links{ gap:4px !important; }
+    .nav-links a{ padding:12px 8px !important; display:inline-flex; align-items:center; min-height:44px; box-sizing:border-box; }
+    .hero-grid{ grid-template-columns:1fr !important; gap:28px !important; }
+    .stat-grid{ grid-template-columns:1fr !important; }
+    .case-row{ grid-template-columns:1fr !important; gap:24px !important; }
+    .case-head{ grid-template-columns:64px minmax(0,1fr) !important; gap:16px !important; }
+    .case-logo{ width:56px !important; height:56px !important; }
+    .prev-summary{ flex-wrap:wrap !important; row-gap:6px !important; }
+    .footer-meta{ flex-direction:column !important; align-items:flex-start !important; gap:8px !important; }
+    .btn{ box-sizing:border-box; min-height:44px; }
+  }
+  @media (max-width:480px){
+    .pg-wrap{ padding:0 16px !important; }
+    .site-footer{ margin-left:-16px !important; margin-right:-16px !important; padding-left:16px !important; padding-right:16px !important; }
+    .footer-btns a{ width:100%; box-sizing:border-box; word-break:break-word; }
+    .case-title{ font-size:30px !important; }
+  }
 </style>
 </helmet>
 <div style="background:var(--bg);color:var(--ink);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;line-height:1.55;min-height:100vh">
-  <div style="max-width:1180px;margin:0 auto;padding:0 44px">
+  <div class="pg-wrap" style="max-width:1180px;margin:0 auto;padding:0 44px">
 
-    <header style="display:flex;justify-content:space-between;align-items:center;padding:26px 0;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--m2)">
+    <header class="site-header" style="display:flex;justify-content:space-between;align-items:center;padding:26px 0;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--m2)">
       <span style="color:var(--ink)">Raihan Bangara</span>
-      <div style="display:flex;gap:26px">
+      <div class="nav-links" style="display:flex;gap:26px">
         <a href="#about" style="color:var(--m2)">About</a>
         <a href="#work" style="color:var(--m2)">Work</a>
         <a href="#contact" style="color:var(--m2)">Contact</a>
@@ -44,16 +66,16 @@
     <section style="padding:104px 0 76px;border-top:1px solid var(--border)">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:34px">Growth marketing · Business development · Sports &amp; media</div>
       <h1 style="font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(48px,7.4vw,104px);line-height:1;letter-spacing:-0.02em;margin:0 0 44px;max-width:15ch">I turn performance data into <em style="color:var(--accent)">audience growth</em>.</h1>
-      <div style="display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:64px;align-items:end">
+      <div class="hero-grid" style="display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:64px;align-items:end">
         <p style="font-size:19px;color:var(--m1);margin:0;max-width:56ch;text-wrap:pretty">Campaign strategy, content, and partnerships for sports, media, and consumer brands. UMass Amherst, BS Managerial Economics, May 2026. Bay Area, open to relocation.</p>
         <div style="display:flex;flex-direction:column;gap:10px">
-          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=raihanbangara@gmail.com" target="_blank" rel="noopener" style="text-align:center;padding:16px;background:var(--accent);color:var(--bg);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="background:var(--panel);color:var(--on-panel)">Email me</a>
-          <a href="Raihan_Bangara_Resume.pdf" style="text-align:center;padding:16px;border:2px solid var(--accent);color:var(--accent);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="background:var(--accent);color:var(--bg)">Resume PDF</a>
+          <a class="btn" href="https://mail.google.com/mail/?view=cm&fs=1&to=raihanbangara@gmail.com" target="_blank" rel="noopener" style="text-align:center;padding:16px;background:var(--accent);color:var(--bg);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="background:var(--panel);color:var(--on-panel)">Email me</a>
+          <a class="btn" href="Raihan_Bangara_Resume.pdf" style="text-align:center;padding:16px;border:2px solid var(--accent);color:var(--accent);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="background:var(--accent);color:var(--bg)">Resume PDF</a>
         </div>
       </div>
     </section>
 
-    <section style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding-bottom:92px">
+    <section class="stat-grid" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;padding-bottom:92px">
       <div style="background:var(--panel);color:var(--on-panel);padding:28px 24px 24px;min-height:158px;display:flex;flex-direction:column;justify-content:space-between">
         <div style="font-family:'Instrument Serif',Georgia,serif;font-size:clamp(38px,4vw,56px);line-height:1">{{ m1 }}</div>
         <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--m4)">Social following, 60 days</div>
@@ -91,11 +113,11 @@
       <div style="border-top:1px solid var(--border)">
 
         <a href="dulce-cocina.html" style="display:block;padding:44px 0;border-bottom:1px solid var(--border);color:var(--ink)" style-hover="color:var(--accent)">
-          <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:start">
-            <div style="display:grid;grid-template-columns:140px minmax(0,1fr);align-items:center;gap:22px">
-              <img src="assets/dulce-cocina-logo.png" alt="Dulce Cocina" style="width:82px;height:82px;flex:none;display:block;border-radius:50%" />
+          <div class="case-row" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:start">
+            <div class="case-head" style="display:grid;grid-template-columns:140px minmax(0,1fr);align-items:center;gap:22px">
+              <img class="case-logo" src="assets/dulce-cocina-logo.png" alt="Dulce Cocina" style="width:82px;height:82px;flex:none;display:block;border-radius:50%" />
               <div>
-                <div style="font-family:'Instrument Serif',Georgia,serif;font-size:44px;line-height:1.05;margin-bottom:10px">Dulce Cocina</div>
+                <div class="case-title" style="font-family:'Instrument Serif',Georgia,serif;font-size:44px;line-height:1.05;margin-bottom:10px">Dulce Cocina</div>
                 <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--m2)">Full stack · 2026</div>
               </div>
             </div>
@@ -107,11 +129,11 @@
         </a>
 
         <a href="jiostar.html" style="display:block;padding:44px 0;border-bottom:1px solid var(--border);color:var(--ink)" style-hover="color:var(--accent)">
-          <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:start">
-            <div style="display:grid;grid-template-columns:140px minmax(0,1fr);align-items:center;gap:22px">
-              <img src="assets/jiostar-logo.png" alt="JioStar" style="width:140px;height:82px;box-sizing:border-box;flex:none;object-fit:contain;display:block">
+          <div class="case-row" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:start">
+            <div class="case-head" style="display:grid;grid-template-columns:140px minmax(0,1fr);align-items:center;gap:22px">
+              <img class="case-logo" src="assets/jiostar-logo.png" alt="JioStar" style="width:140px;height:82px;box-sizing:border-box;flex:none;object-fit:contain;display:block">
               <div>
-                <div style="font-family:'Instrument Serif',Georgia,serif;font-size:44px;line-height:1.05;margin-bottom:10px">JioStar</div>
+                <div class="case-title" style="font-family:'Instrument Serif',Georgia,serif;font-size:44px;line-height:1.05;margin-bottom:10px">JioStar</div>
                 <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--m2)">Sports marketing · 2025</div>
               </div>
             </div>
@@ -123,11 +145,11 @@
         </a>
 
         <a href="verix.html" style="display:block;padding:44px 0;border-bottom:1px solid var(--border);color:var(--ink)" style-hover="color:var(--accent)">
-          <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:start">
-            <div style="display:grid;grid-template-columns:140px minmax(0,1fr);align-items:center;gap:22px">
-              <img src="assets/verix-logo.png" alt="Verix" style="width:82px;height:82px;box-sizing:border-box;flex:none;object-fit:contain;background:var(--card);border:1px solid var(--border);padding:8px;display:block" />
+          <div class="case-row" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:start">
+            <div class="case-head" style="display:grid;grid-template-columns:140px minmax(0,1fr);align-items:center;gap:22px">
+              <img class="case-logo" src="assets/verix-logo.png" alt="Verix" style="width:82px;height:82px;box-sizing:border-box;flex:none;object-fit:contain;background:var(--card);border:1px solid var(--border);padding:8px;display:block" />
               <div>
-                <div style="font-family:'Instrument Serif',Georgia,serif;font-size:44px;line-height:1.05;margin-bottom:10px">Verix</div>
+                <div class="case-title" style="font-family:'Instrument Serif',Georgia,serif;font-size:44px;line-height:1.05;margin-bottom:10px">Verix</div>
                 <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--m2)">Growth · 2024</div>
               </div>
             </div>
@@ -144,7 +166,7 @@
       <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--m2);margin-bottom:20px">Previously</div>
       <div style="display:flex;flex-direction:column;margin-bottom:40px">
         <details class="prev-item">
-          <summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:15px;color:var(--m1);border-bottom:1px solid var(--border);padding:13px 0;cursor:pointer"><span style="color:var(--ink)">Universal Music Group</span><span style="display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:12px"><span>Marketing · 2023</span><span class="prev-arrow">›</span></span></summary>
+          <summary class="prev-summary" style="display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:15px;color:var(--m1);border-bottom:1px solid var(--border);padding:13px 0;cursor:pointer;min-height:44px;box-sizing:border-box"><span style="color:var(--ink)">Universal Music Group</span><span style="display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:12px"><span>Marketing · 2023</span><span class="prev-arrow">›</span></span></summary>
           <ul class="prev-body" style="margin:0;padding:12px 0 12px 18px">
             <li>Supported a marketing initiative introducing 5 emerging artists to college audiences, driving engagement and brand awareness across campus channels</li>
             <li>Organized a college music festival showcasing new talent, drawing an audience of 15,000+ and creating visibility for the label's artist roster</li>
@@ -152,14 +174,14 @@
           </ul>
         </details>
         <details class="prev-item">
-          <summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:15px;color:var(--m1);border-bottom:1px solid var(--border);padding:13px 0;cursor:pointer"><span style="color:var(--ink)">Qyuki Digital Media</span><span style="display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:12px"><span>Analyst · 2022</span><span class="prev-arrow">›</span></span></summary>
+          <summary class="prev-summary" style="display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:15px;color:var(--m1);border-bottom:1px solid var(--border);padding:13px 0;cursor:pointer;min-height:44px;box-sizing:border-box"><span style="color:var(--ink)">Qyuki Digital Media</span><span style="display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:12px"><span>Analyst · 2022</span><span class="prev-arrow">›</span></span></summary>
           <ul class="prev-body" style="margin:0;padding:12px 0 12px 18px">
             <li>Conducted performance analysis across 250 content creators in Qyuki's network, evaluating impact, audience reach, and commercial value to inform strategic decisions</li>
             <li>Flagged the top and bottom 15% of creators, who accounted for roughly 30% of total network reach, to guide leadership's network strategy</li>
           </ul>
         </details>
         <details class="prev-item">
-          <summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:15px;color:var(--m1);border-bottom:1px solid var(--border);padding:13px 0;cursor:pointer"><span style="color:var(--ink)">Collective Artists Network</span><span style="display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:12px"><span>Sponsorship · 2022</span><span class="prev-arrow">›</span></span></summary>
+          <summary class="prev-summary" style="display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:15px;color:var(--m1);border-bottom:1px solid var(--border);padding:13px 0;cursor:pointer;min-height:44px;box-sizing:border-box"><span style="color:var(--ink)">Collective Artists Network</span><span style="display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:12px"><span>Sponsorship · 2022</span><span class="prev-arrow">›</span></span></summary>
           <ul class="prev-body" style="margin:0;padding:12px 0 12px 18px">
             <li>Conducted sponsorship research evaluating athlete, celebrity, and brand alignment opportunities</li>
             <li>Developed partnership recommendations supporting sports sponsorship initiatives</li>
@@ -181,14 +203,14 @@
       </div>
     </section>
 
-    <footer id="contact" style="background:var(--panel);color:var(--on-panel);margin:0 -44px;padding:84px 44px 56px">
+    <footer id="contact" class="site-footer" style="background:var(--panel);color:var(--on-panel);margin:0 -44px;padding:84px 44px 56px">
       <div style="max-width:1092px;margin:0 auto">
         <h2 style="font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(40px,5.6vw,76px);line-height:1.02;margin:0 0 40px">Let's talk.</h2>
-        <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:56px">
-          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=raihanbangara@gmail.com" target="_blank" rel="noopener" style="padding:18px 32px;background:var(--accent);color:var(--bg);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="background:var(--bg);color:var(--ink)">raihanbangara@gmail.com</a>
-          <a href="https://linkedin.com/in/raihan-bangara" style="padding:18px 32px;border:1px solid var(--border-dark);color:var(--on-panel);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="border-color:var(--on-panel);color:var(--on-panel)">LinkedIn</a>
+        <div class="footer-btns" style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:56px">
+          <a class="btn" href="https://mail.google.com/mail/?view=cm&fs=1&to=raihanbangara@gmail.com" target="_blank" rel="noopener" style="padding:18px 32px;background:var(--accent);color:var(--bg);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="background:var(--bg);color:var(--ink)">raihanbangara@gmail.com</a>
+          <a class="btn" href="https://linkedin.com/in/raihan-bangara" style="padding:18px 32px;border:1px solid var(--border-dark);color:var(--on-panel);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="border-color:var(--on-panel);color:var(--on-panel)">LinkedIn</a>
         </div>
-        <div style="display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--m3)"><span>Raihan Samir Bangara</span><span>Bay Area · Open to relocation · 2026</span></div>
+        <div class="footer-meta" style="display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--m3)"><span>Raihan Samir Bangara</span><span>Bay Area · Open to relocation · 2026</span></div>
       </div>
     </footer>
   </div>
